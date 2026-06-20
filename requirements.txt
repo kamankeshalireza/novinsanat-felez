@@ -1,3 +1,6 @@
 asgiref==3.11.1
 Django==5.2.15
+factory_boy==3.3.3
+Faker==40.23.0
+pillow==12.2.0
 sqlparse==0.5.5

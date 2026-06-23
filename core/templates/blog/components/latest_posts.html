@@ -1,0 +1,91 @@
+{% load static %}
+
+<section id="latest-posts" class="latest-posts section">
+  <div class="container section-title" data-aos="fade-up">
+    <span class="description-title">جدید ترین پست‌ها</span>
+    <h2>جدید ترین پست‌ها</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4 align-items-stretch">
+      <div class="col-lg-7" data-aos="zoom-in" data-aos-delay="150">
+        {% if primary_post %}
+          <article class="featured-post position-relative h-100">
+            <figure class="featured-media m-0">
+              {% if primary_post.featured_image %}
+                <img src="{{ primary_post.featured_image.url }}" alt="{{ primary_post.title }}" class="img-fluid w-100" loading="lazy" />
+              {% else %}
+                <img src="{% static 'assets/img/blog/blog-hero-4.webp' %}" alt="Placeholder image" class="img-fluid w-100" loading="lazy" />
+              {% endif %}
+            </figure>
+
+            <div class="featured-content">
+              <div class="date-badge">
+                <span class="day">{{ primary_post.created_at|date:'d' }}</span>
+                <span class="mon">{{ primary_post.created_at|date:'b' }}</span>
+              </div>
+
+              {% if primary_post.category %}
+                <span class="cat-badge inverse">{{ primary_post.category.name }}</span>
+              {% endif %}
+
+              <h3 class="title">{{ primary_post.title }}</h3>
+              <p class="excerpt d-none d-md-block">{{ primary_post.excerpt|default:primary_post.content|truncatewords:20 }}</p>
+
+              <div class="meta d-flex align-items-center gap-3">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person"></i>
+                  <span class="ps-2">{{ primary_post.author.get_full_name|default:primary_post.author.username }}</span>
+                </div>
+                {% if primary_post.category %}
+                  <span class="sep">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i><span class="ps-2">{{ primary_post.category.name }}</span>
+                  </div>
+                {% endif %}
+              </div>
+
+              <a href="{{ primary_post.get_absolute_url }}" class="readmore stretched-link"><span>Continue</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        {% else %}
+          <p>No recent updates found.</p>
+        {% endif %}
+      </div>
+
+      <div class="col-lg-5">
+        <div class="row gy-4">
+          {% for post in secondary_posts %}
+            <div class="col-12" data-aos="fade-left" data-aos-delay="{{ forloop.counter|add:1 }}00">
+              <article class="compact-post h-100">
+                <div class="thumb">
+                  {% if post.featured_image %}
+                    <img src="{{ post.featured_image.url }}" class="img-fluid" alt="{{ post.title }}" loading="lazy" />
+                  {% else %}
+                    <img src="{% static 'assets/img/blog/blog-post-square-2.webp' %}" class="img-fluid" alt="Placeholder layout" loading="lazy" />
+                  {% endif %}
+                </div>
+                <div class="content">
+                  <div class="meta">
+                    <span class="date">{{ post.created_at|date:'d M' }}</span>
+                    {% if post.category %}
+                      <span class="dot">•</span>
+                      <span class="category">{{ post.category.name }}</span>
+                    {% endif %}
+                  </div>
+                  <h4 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                  <a href="{{ post.get_absolute_url }}" class="readmore"><span>Read Article</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+              </article>
+            </div>
+          {% empty %}
+            {% if not primary_post %}
+              <p>Stay tuned! Articles are coming soon.</p>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,105 @@
+{% load static %}
+
+<section id="category-section-{{ category_name|slugify }}" class="category-section section">
+  <div class="container section-title" data-aos="fade-up">
+    <span class="description-title">{{ category_name }}</span>
+    <h2>{{ category_name }}</h2>
+    <p>Check out our latest insights, tutorials, and updates in this space.</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4 mb-5">
+      <div class="col-lg-8">
+        {% if hero_post %}
+          <article class="hero-post" data-aos="zoom-out" data-aos-delay="200">
+            <div class="post-img">
+              {% if hero_post.featured_image %}
+                <img src="{{ hero_post.featured_image.url }}" alt="{{ hero_post.title }}" class="img-fluid" loading="lazy" />
+              {% else %}
+                <img src="{% static 'assets/img/blog/blog-post-5.webp' %}" alt="Placeholder" class="img-fluid" loading="lazy" />
+              {% endif %}
+            </div>
+            <div class="post-content">
+              <div class="author-info">
+                <img src="{% static 'assets/img/person/person-m-8.webp' %}" alt="{{ hero_post.author.username }}" class="author-avatar" />
+                <div class="author-details">
+                  <span class="author-name">{{ hero_post.author.get_full_name|default:hero_post.author.username }}</span>
+                  <span class="post-date">{{ hero_post.created_at|date:'d F Y' }}</span>
+                </div>
+              </div>
+              <h2 class="post-title"><a href="{{ hero_post.get_absolute_url }}">{{ hero_post.title }}</a></h2>
+              <p class="post-excerpt">{{ hero_post.excerpt|default:hero_post.content|truncatewords:30 }}</p>
+              <div class="post-stats">
+                <span class="read-time"><i class="bi bi-clock"></i> {{ hero_post.reading_time }} min read</span>
+                <span class="comments"><i class="bi bi-chat-dots"></i> {{ hero_post.approved_comments_count }} comments</span>
+              </div>
+            </div>
+          </article>
+        {% else %}
+          <p>No featured articles available in this category yet.</p>
+        {% endif %}
+      </div>
+
+      <div class="col-lg-4">
+        <div class="sidebar-posts">
+          {% for post in sidebar_posts %}
+            <article class="sidebar-post" data-aos="fade-left" data-aos-delay="{{ forloop.counter|add:2 }}00">
+              <div class="post-img">
+                {% if post.featured_image %}
+                  <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="img-fluid" loading="lazy" />
+                {% else %}
+                  <img src="{% static 'assets/img/blog/blog-post-1.webp' %}" alt="Placeholder" class="img-fluid" loading="lazy" />
+                {% endif %}
+              </div>
+              <div class="post-content">
+                {% if post.category %}
+                  <span class="post-category">{{ post.category.name }}</span>
+                {% endif %}
+                <h4 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                <div class="post-meta">
+                  <span class="post-date">{{ post.created_at|date:'d F Y' }}</span>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% if grid_posts %}
+      <div class="posts-grid">
+        <div class="row gy-4">
+          {% for post in grid_posts %}
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:1 }}00">
+              <article class="grid-post">
+                <div class="post-img">
+                  {% if post.featured_image %}
+                    <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="img-fluid" loading="lazy" />
+                  {% else %}
+                    <img src="{% static 'assets/img/blog/blog-post-6.webp' %}" alt="Placeholder" class="img-fluid" loading="lazy" />
+                  {% endif %}
+                  {% if post.category %}
+                    <div class="post-overlay">
+                      <span class="category-tag">{{ post.category.name }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+                <div class="post-content">
+                  <h3 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                  <p class="excerpt">{{ post.excerpt|default:post.content|truncatewords:20 }}</p>
+                  <div class="post-footer">
+                    <div class="author-info">
+                      <img src="{% static 'assets/img/person/person-f-7.webp' %}" alt="{{ post.author.username }}" class="author-img" />
+                      <span class="author-name">{{ post.author.get_full_name|default:post.author.username }}</span>
+                    </div>
+                    <span class="read-time">{{ post.reading_time }} min read</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,86 @@
+{% load static %}
+
+<section id="featured-posts" class="featured-posts section">
+  <div class="container section-title" data-aos="fade-up">
+    <span class="description-title">پست‌های ویژه</span>
+    <h2>پست‌های ویژه</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="blog-posts-slider swiper init-swiper">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 4500
+          },
+          "slidesPerView": 1,
+          "spaceBetween": 40,
+          "centeredSlides": true,
+          "breakpoints": {
+            "768": {
+              "slidesPerView": 1.5,
+              "spaceBetween": 30
+            },
+            "1200": {
+              "slidesPerView": 2.2,
+              "spaceBetween": 40
+            }
+          },
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+          }
+        }
+      </script>
+
+      <div class="swiper-wrapper">
+        {% for post in featured_posts %}
+          <div class="swiper-slide">
+            <article class="blog-card">
+              <div class="blog-image">
+                {% if post.featured_image %}
+                  <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" loading="lazy" />
+                {% else %}
+                  <img src="{% static 'assets/img/blog/blog-hero-1.webp' %}" alt="Placeholder Image" loading="lazy" />
+                {% endif %}
+                {% if post.category %}
+                  <div class="category-badge">{{ post.category.name }}</div>
+                {% endif %}
+              </div>
+              <div class="blog-content">
+                <div class="author-info">
+                  <img src="{% static 'assets/img/person/person-f-2.webp' %}" alt="{{ post.author.get_full_name }}" class="author-avatar" />
+                  <div class="author-details">
+                    <span class="author-name">{{ post.author.get_full_name|default:post.author.username }}</span>
+                    <span class="publish-date">{{ post.created_at|date:'F d, Y' }}</span>
+                  </div>
+                </div>
+                <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                <p>{{ post.excerpt|default:post.content|truncatewords:20 }}</p>
+                <div class="blog-footer">
+                  <div class="reading-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{{ post.reading_time }} min read</span>
+                  </div>
+                  <a href="{{ post.get_absolute_url }}" class="btn-read-more">
+                    <span>Continue Reading</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        {% empty %}
+          <div class="swiper-slide">
+            <p class="text-center">No featured posts available at the moment.</p>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>

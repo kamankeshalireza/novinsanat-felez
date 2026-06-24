@@ -43,9 +43,6 @@ class PostFactory(factory.django.DjangoModelFactory):
     title = factory.Faker("sentence", nb_words=6)
     excerpt = factory.Faker("text", max_nb_chars=200)
     content = factory.Faker("paragraph", nb_sentences=10)
-    featured_image = factory.django.ImageField(
-        color="blue"
-    )  # Generates a dummy image file
     author = factory.SubFactory(UserFactory)
     category = factory.SubFactory(CategoryFactory)
     reading_time = factory.Faker("random_int", min=1, max=15)

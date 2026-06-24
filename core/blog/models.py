@@ -55,7 +55,9 @@ class Post(models.Model):
     slug = models.SlugField(max_length=220, unique=True, blank=True)
     excerpt = models.TextField(max_length=500, blank=True)
     content = models.TextField()
-    featured_image = models.ImageField(upload_to="blog/featured/%Y/%m/")
+    featured_image = models.ImageField(
+        upload_to="blog/featured/%Y/%m/", default="blog/default.webp"
+    )
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,

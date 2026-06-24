@@ -69,7 +69,7 @@
             {% if post.author.profile.avatar %}
               <img src="{{ post.author.profile.avatar.url }}" alt="{{ post.author.get_full_name|default:post.author.username }}" class="author-avatar" />
             {% else %}
-              <img src="{% static 'assets/img/person/person-m-9.webp' %}" alt="{{ post.author.get_full_name|default:post.author.username }}" class="author-avatar" />
+              <img src="{% static 'assets/img/person/person-f-9.webp' %}" alt="{{ post.author.get_full_name|default:post.author.username }}" class="author-avatar" />
             {% endif %}
             <div class="author-details">
               <h4>{{ post.author.get_full_name|default:post.author.username }}</h4>
@@ -157,7 +157,7 @@
             {% if post.author.profile.avatar %}
               <img src="{{ post.author.profile.avatar.url }}" class="author-image" alt="{{ post.author.get_full_name|default:post.author.username }}" loading="lazy" />
             {% else %}
-              <img src="{% static 'assets/img/person/person-m-6.webp' %}" class="author-image" alt="{{ post.author.get_full_name|default:post.author.username }}" loading="lazy" />
+              <img src="{% static 'assets/img/person/person-f-6.webp' %}" class="author-image" alt="{{ post.author.get_full_name|default:post.author.username }}" loading="lazy" />
             {% endif %}
           </div>
 
@@ -230,7 +230,7 @@
                         <div class="comment-box reply">
                           <div class="comment-wrapper">
                             <div class="avatar-wrapper">
-                              <img src="{% static 'assets/img/person/person-m-9.webp' %}" alt="Avatar" loading="lazy" />
+                              <img src="{% static 'assets/img/person/person-f-9.webp' %}" alt="Avatar" loading="lazy" />
                               <span class="status-indicator"></span>
                             </div>
 

@@ -21,7 +21,7 @@
             </div>
             <div class="post-content">
               <div class="author-info">
-                <img src="{% static 'assets/img/person/person-m-8.webp' %}" alt="{{ hero_post.author.username }}" class="author-avatar" />
+                <img src="{% static 'assets/img/person/person-f-8.webp' %}" alt="{{ hero_post.author.username }}" class="author-avatar" />
                 <div class="author-details">
                   <span class="author-name">{{ hero_post.author.get_full_name|default:hero_post.author.username }}</span>
                   <span class="post-date">{{ hero_post.created_at|date:'d F Y' }}</span>

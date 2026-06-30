@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-  درباره ما
+  درباره ما - نوین صنعت فلز
 {% endblock %}
 
 {% block body_class %}
@@ -19,10 +19,10 @@
       <div class="container">
         <div class="row d-flex justify-content-center text-center">
           <div class="col-lg-8">
-            <h1 class="heading-title">About</h1>
-            <p class="mb-0">نوین صنعت فلز، داستانی از یک شروع تازه در سال ۱۳۹۹ است؛ سالی که افشین غلامی با نگاهی متفاوت به دنیای فلز، تصمیم گرفت ارزش پنهان در اشیای به‌ظاهر بی‌ارزش را آشکار کند. جایی که بسیاری ضایعات و قطعات دورریختنی را زباله می‌بینند، او ماده‌ی خام آثار هنری آینده را می‌دید.
-با تکیه بر همین باور است که هر قطعه از مجسمه‌ها و اکسسوری‌های نوین صنعت فلز، روایتی از بازیابی، خلاقیت و تحول دارد. یک پیچ فرسوده، یک ورق فلز قدیمی یا یک قطعه‌ی بی‌استفاده در کارگاه، در دستان هنرمند جان تازه‌ای می‌گیرد و به یک اثر هنری چشمنواز تبدیل می‌شود. این رویکرد، نه‌تنها به کاهش زباله و مصرف بهینه‌تر منابع کمک می‌کند، بلکه به هر اثر، هویت و داستانی منحصربه‌فرد می‌بخشد که در تولیدات انبوه هرگز یافت نمی‌شود.
-امروز، نوین صنعت فلز با تولید آثاری فراتر از یک شیء تزئینی، ثابت کرده است که زیبایی را می‌توان از دل به‌ظاهر بی‌ارزش‌ترین مواد خلق کرد. افتخار ما این است که با تکیه بر ذوق و مهارت فردی، گامی در جهت هنر پایدار و صنعت خلاق برداریم و در آینده، نام این هنر ایرانی را با صادرات محصولات اصیل خود به گوش جهانیان برسانیم.</p>
+            <h1 class="heading-title">درباره نوین صنعت فلز</h1>
+            <p class="mb-0">
+              داستانی از یک شروع تازه در سال ۱۳۹۹؛ جایی که هنر، صنعت و بازیافت در هم آمیختند.
+            </p>
           </div>
         </div>
       </div>
@@ -31,200 +31,146 @@
       <div class="container">
         <ol>
           <li>
-            <a href="{% url 'website:index' %}">Home</a>
+            <a href="{% url 'website:index' %}">صفحه اصلی</a>
           </li>
-          <li class="current">About</li>
+          <li class="current">درباره ما</li>
         </ol>
       </div>
     </nav>
   </div>
+
   <section id="about" class="about section">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
+      
       <div class="row g-5 align-items-center">
+        <!-- ستون چپ: عکس و آمار -->
         <div class="col-lg-6 position-relative">
           <div class="about-img" data-aos="fade-right">
-            <img src="{% static 'assets/img/about/about-portrait-2.webp' %}" class="img-fluid" alt="" />
+            <!-- اینجا عکس افشین غلامی یا کارگاه فلزکاری را بگذارید -->
+            <img src="{% static 'assets/img/about/about-portrait-2.jpg' %}" class="img-fluid" alt="افشین غلامی - نوین صنعت فلز" />
           </div>
+          
+          <!-- تغییر آمار به واقعیت شما -->
           <div class="experience-badge" data-aos="fade-up">
-            <h2>12</h2>
+            <h2>۱۳۹۹</h2>
             <p>
-              Years of<br />Experience
+              سال شروع<br />فعالیت
             </p>
           </div>
           <div class="projects-badge" data-aos="fade-left">
-            <h2>345+</h2>
-            <p>Projects</p>
+            <!-- این عدد را بر اساس تعداد کارهایی که ساختید تغییر دهید -->
+            <h2>۱۰۰+</h2>
+            <p>قطعه و اثر<br />ساخته شده</p>
           </div>
         </div>
 
+        <!-- ستون راست: متن و ویژگی ها -->
         <div class="col-lg-6" data-aos="fade-left">
-          <h2 class="display-4 fw-bold mb-4">Vestibulum Sagittis Lacinia Augue</h2>
-          <p class="lead mb-4">Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales.</p>
+          <h2 class="display-4 fw-bold mb-4">خلق هنر از دل فلز</h2>
+          <p class="lead mb-4">
+            نوین صنعت فلز، داستانی از یک شروع تازه در سال ۱۳۹۹ است؛ سالی که افشین غلامی با نگاهی متفاوت به دنیای فلز، تصمیم گرفت ارزش پنهان در اشیای به‌ظاهر بی‌ارزش را آشکار کند. جایی که بسیاری ضایعات و قطعات دورریختنی را زباله می‌بینند، او ماده‌ی خام آثار هنری آینده را می‌دید.
+          </p>
+          <p>
+            با تکیه بر همین باور است که هر قطعه از مجسمه‌ها و اکسسوری‌های نوین صنعت فلز، روایتی از بازیابی، خلاقیت و تحول دارد. یک پیچ فرسوده، یک ورق فلز قدیمی یا یک قطعه‌ی بی‌استفاده در کارگاه، در دستان هنرمند جان تازه‌ای می‌گیرد و به یک اثر هنری چشمنواز تبدیل می‌شود. این رویکرد، نه‌تنها به کاهش زباله و مصرف بهینه‌تر منابع کمک می‌کند، بلکه به هر اثر، هویت و داستانی منحصربه‌فرد می‌بخشد.
+          </p>
 
-          <div class="features">
+          <div class="features mt-5">
+            <!-- سه ویژگی کلیدی برند شما -->
             <div class="feature-item mb-4" data-aos="fade-up">
               <div class="feature-icon">
-                <i class="bi bi-rocket-takeoff"></i>
+                <i class="bi bi-hammer"></i>
               </div>
               <div class="feature-content">
-                <h4>Pellentesque Dapibus</h4>
-                <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+                <h4>دست‌ساز و منحصر‌به‌فرد</h4>
+                <p>تمام آثار با دست و توسط افشین غلامی خلق می‌شوند. از این رو، هیچ دو قطعه‌ای کاملاً شبیه هم نیستند.</p>
               </div>
             </div>
 
             <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="100">
               <div class="feature-icon">
-                <i class="bi bi-globe2"></i>
+                <i class="bi bi-recycle"></i>
               </div>
               <div class="feature-content">
-                <h4>Suspendisse Pulvinar</h4>
-                <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem.</p>
+                <h4>بازیافت خلاقانه (Upcycling)</h4>
+                <p>ما به ضایعات فلزی جان تازه‌ای می‌بخشیم. این رویکرد نه تنها به محیط زیست کمک می‌کند، بلکه زیبایی خاصی به آثار ما می‌دهد.</p>
               </div>
             </div>
 
-            <ul class="check-list" data-aos="fade-up" data-aos-delay="200">
-              <li>
-                <i class="bi bi-check-circle"></i> Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean.
-              </li>
-              <li>
-                <i class="bi bi-check-circle"></i> Etiam ultricies nisi vel augue curabitur ullamcorper ultricies nisi nam.
-              </li>
-            </ul>
-
-            <a href="#" class="btn btn-primary btn-lg mt-4" data-aos="fade-up" data-aos-delay="300">Learn More</a>
+            <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="feature-icon">
+                <i class="bi bi-globe-americas"></i>
+              </div>
+              <div class="feature-content">
+                <h4>چشم‌انداز جهانی</h4>
+                <p>افتخار ما این است که با تکیه بر ذوق و مهارت فردی، گامی در جهت هنر پایدار برداریم و در آینده، نام این هنر ایرانی را با صادرات محصولات خود به گوش جهانیان برسانیم.</p>
+              </div>
+            </div>
           </div>
+          
+          <a href="{% url 'website:contact' %}" class="btn btn-primary btn-lg mt-4" data-aos="fade-up" data-aos-delay="300">سفارش و تماس با ما</a>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- بخش خانواده نوین صنعت فلز -->
   <section id="team" class="team section">
     <div class="container section-title" data-aos="fade-up">
-      <span class="description-title">Team</span>
-      <h2>Team</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      <span class="description-title">خانواده ما</span>
+      <h2>تیم صمیمی و همراه</h2>
+      <p>نوین صنعت فلز، یک کارگاه کوچک اما پر از عشق است. ما کنار هم خلق می‌کنیم و تیدا هم همیشه مراقب کیفیت کار است!</p>
     </div>
+
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row g-4">
+      <div class="row g-4 justify-content-center">
+        
+        <!-- کارت اول: افشین (بنیانگذار و هنرمند) -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
           <div class="team-member">
             <div class="member-image">
-              <img src="{% static 'assets/img/person/person-f-2.webp' %}" class="img-fluid" alt="" loading="lazy" />
-              <div class="social-overlay">
-                <div class="social-icons">
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
+              <!-- اینجا عکس افشین در حال کار با چکش یا جوشکاری را بگذارید -->
+              <img src="{% static 'assets/img/person/afshin-gholami.jpg' %}" class="img-fluid" alt="افشین غلامی - بنیانگذار نوین صنعت فلز" loading="lazy" />
             </div>
             <div class="member-info">
-              <h4>Emma Rodriguez</h4>
-              <span>Senior Developer</span>
-              <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+              <h4>افشین غلامی</h4>
+              <span>بنیانگذار و هنرمند فلزکار</span>
+              <p>خلاقیت از سال ۱۳۹۹ در وجودش جریان دارد. با دستان خود، ضایعات را به هنر تبدیل می‌کند.</p>
             </div>
           </div>
         </div>
 
+        <!-- کارت دوم: خانم افشین (همکار و پشتیبان) -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
           <div class="team-member">
             <div class="member-image">
-              <img src="{% static 'assets/img/person/person-f-7.webp' %}" class="img-fluid" alt="" loading="lazy" />
-              <div class="social-overlay">
-                <div class="social-icons">
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
+              <!-- اینجا عکس خانم در کارگاه (مثلاً در حال تمیز کردن قطعه یا کنار افشین) را بگذارید -->
+              <img src="{% static 'assets/img/person/wife-afshin.jpg' %}" class="img-fluid" alt="همسر افشین - همکار نوین صنعت فلز" loading="lazy" />
             </div>
             <div class="member-info">
-              <h4>Michael Torres</h4>
-              <span>Creative Director</span>
-              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus.</p>
+              <h4>همسر افشین</h4>
+              <span>همکار و پشتیبان هنری</span>
+              <p>دستیار صمیمی کارگاه. در رنگ‌آمیزی، جلا دادن و ایده‌پردازی قطعات، همراه همیشگی افشین است.</p>
             </div>
           </div>
         </div>
 
+        <!-- کارت سوم: تیدا (عضو وفادار تیم) -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
           <div class="team-member">
             <div class="member-image">
-              <img src="{% static 'assets/img/person/person-f-1.webp' %}" class="img-fluid" alt="" loading="lazy" />
-              <div class="social-overlay">
-                <div class="social-icons">
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
+              <!-- اینجا عکس تیدا را (مثلاً کنار یک مجسمه یا روی زمین کارگاه) بگذارید -->
+              <img src="{% static 'assets/img/person/tida-dog.jpg' %}" class="img-fluid" alt="تیدا - عضو وفادار کارگاه" loading="lazy" />
             </div>
             <div class="member-info">
-              <h4>Sarah Mitchell</h4>
-              <span>Project Manager</span>
-              <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <h4>تیدا</h4>
+              <span>مدیر ارشد روحیه بخشی!</span>
+              <p>حضور گرمش، انرژی کارگاه را دو چندان می‌کند. او همیشه کنار پای افشین، مراقبِ ظرافت کارهاست!</p>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="team-member">
-            <div class="member-image">
-              <img src="{% static 'assets/img/person/person-f-4.webp' %}" class="img-fluid" alt="" loading="lazy" />
-              <div class="social-overlay">
-                <div class="social-icons">
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>David Kim</h4>
-              <span>Business Analyst</span>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="team-member">
-            <div class="member-image">
-              <img src="{% static 'assets/img/person/person-f-3.webp' %}" class="img-fluid" alt="" loading="lazy" />
-              <div class="social-overlay">
-                <div class="social-icons">
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Lisa Chang</h4>
-              <span>Marketing Lead</span>
-              <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="team-member">
-            <div class="member-image">
-              <img src="{% static 'assets/img/person/person-f-5.webp' %}" class="img-fluid" alt="" loading="lazy" />
-              <div class="social-overlay">
-                <div class="social-icons">
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Ryan Cooper</h4>
-              <span>Software Engineer</span>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
+
 {% endblock %}

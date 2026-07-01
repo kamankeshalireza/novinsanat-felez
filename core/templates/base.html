@@ -7,7 +7,7 @@
     <title>
       {% block title %}
         صفحه اصلی
-      {% endblock %}| نوین صنعت - فلز
+      {% endblock %}| نوین صنعت فلز
     </title>
     <meta name="description" content="{{ meta_description|default:'' }}" />
     <meta name="keywords" content="{{ meta_keywords|default:'' }}" />
@@ -40,7 +40,11 @@
     {% endblock %}">
     <header id="header" class="header d-flex align-items-center position-relative">
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="{% url 'website:index' %}" class="logo d-flex align-items-center me-auto me-xl-0"><h1 class="sitename">Novin Sanat</h1></a>
+        
+        <!-- لوگوی سایت -->
+        <a href="{% url 'website:index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+          <h1 class="sitename">نوین صنعت فلز</h1>
+        </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -80,11 +84,9 @@
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
+        <!-- شبکه‌های اجتماعی هدر -->
         <div class="header-social-links">
-          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.instagram.com/novin.sanat.felez" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
     </header>
@@ -98,97 +100,87 @@
     <footer id="footer" class="footer position-relative light-background">
       <div class="container">
         <div class="row gy-5">
-          <div class="col-lg-4">
+          
+          <!-- ستون ۱: برند و لینک‌های مفید -->
+          <div class="col-lg-3 col-md-6">
             <div class="footer-brand">
-              <a href="{% url 'website:index' %}" class="logo d-flex align-items-center mb-3"><span class="sitename">Story</span></a>
-              <p class="tagline">Innovating the digital landscape with elegant solutions and timeless design.</p>
+              <a href="{% url 'website:index' %}" class="logo d-flex align-items-center mb-3">
+                <span class="sitename">نوین صنعت فلز</span>
+              </a>
+              <p class="tagline mb-4">خلق هنر از دل فلز؛ از ضایعات تا اثر.</p>
+              
+              <h5>دسته‌بندی محصولات</h5>
+              <ul class="list-unstyled footer-links">
+                <li><a href="#">مجسمه‌های فلزی</a></li>
+                <li><a href="#">اکسسوری و دکوراتیو</a></li>
+                <li><a href="#">قطعات سفارشی صنعتی</a></li>
+              </ul>
 
               <div class="social-links mt-4">
-                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-                <a href="#" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
+                <a href="https://www.instagram.com/novin.sanat.felez" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-6">
-            <div class="footer-links-grid">
-              <div class="row">
-                <div class="col-6 col-md-4">
-                  <h5>Company</h5>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="{% url 'website:about' %}">About Us</a>
-                    </li>
-                    <li>
-                      <a href="#">Our Team</a>
-                    </li>
-                    <li>
-                      <a href="#">Careers</a>
-                    </li>
-                    <li>
-                      <a href="#">Newsroom</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-4">
-                  <h5>Services</h5>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="#">Web Development</a>
-                    </li>
-                    <li>
-                      <a href="#">UI/UX Design</a>
-                    </li>
-                    <li>
-                      <a href="#">Digital Strategy</a>
-                    </li>
-                    <li>
-                      <a href="#">Branding</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-4">
-                  <h5>Support</h5>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="#">Help Center</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'website:contact' %}">Contact Us</a>
-                    </li>
-                    <li>
-                      <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                      <a href="#">Terms of Service</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+          <!-- ستون ۲: سوالات متداول (FAQ) -->
+          <div class="col-lg-3 col-md-6">
+            <h5>سوالات متداول (FAQ)</h5>
+            <ul class="list-unstyled footer-links">
+              <li>
+                <strong>چطور می‌توانم سفارش بدم؟</strong><br />
+                <small>از طریق صفحه تماس با ما، فرم را پر کنید یا در دایرکت اینستاگرام پیام دهید.</small>
+              </li>
+              <li>
+                <strong>زمان ساخت چقدر است؟</strong><br />
+                <small>بسته به پیچیدگی طرح، بین ۳ روز تا ۲ هفته زمان می‌برد.</small>
+              </li>
+              <li>
+                <strong>آیا امکان ارسال به شهرستان وجود دارد؟</strong><br />
+                <small>بله، محصولات با پست پیشتاز یا باربری به سراسر کشور ارسال می‌شوند.</small>
+              </li>
+            </ul>
+          </div>
+
+          <!-- ستون ۳: اطلاعات تماس و راهنما -->
+          <div class="col-lg-3 col-md-6">
+            <h5>ارتباط با ما</h5>
+            <ul class="list-unstyled footer-links">
+              <li><i class="bi bi-geo-alt-fill me-2"></i> پاکدشت، خلیل شیرازی، بزرگراه امام رضا ۷۷</li>
+              <li><i class="bi bi-whatsapp me-2"></i> <a href="https://wa.me/989127920223" target="_blank">۰۹۱۲۷۹۲۰۲۲۳</a></li>
+              <li><i class="bi bi-telegram me-2"></i> <a href="https://t.me/AfshinGholamii" target="_blank">@AfshinGholamii</a></li>
+              <li><i class="bi bi-telephone-fill me-2"></i> <a href="tel:+989127920223">۰۹۱۲۷۹۲۰۲۲۳</a></li>
+            </ul>
+            
+            <h5 class="mt-4">لینک‌های مفید</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="{% url 'website:about' %}">درباره ما</a></li>
+              <li><a href="{% url 'website:contact' %}">نحوه سفارش</a></li>
+              <li><a href="#">قوانین و شرایط</a></li>
+            </ul>
+          </div>
+
+          <!-- ستون ۴: تماس سریع -->
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-cta p-4 bg-light rounded shadow-sm text-center">
+              <h5>برای سفارش و مشاوره</h5>
+              <p class="mb-3">همین حالا با ما در ارتباط باشید.</p>
+              <a href="{% url 'website:contact' %}" class="btn btn-primary w-100 mb-2">فرم تماس</a>
+              <a href="https://wa.me/989127920223" target="_blank" class="btn btn-success w-100"><i class="bi bi-whatsapp"></i> چت واتساپ</a>
             </div>
           </div>
 
-          <div class="col-lg-2">
-            <div class="footer-cta">
-              <h5>Let's Connect</h5>
-              <a href="{% url 'website:contact' %}" class="btn btn-outline">Get in Touch</a>
-            </div>
-          </div>
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-bottom mt-5">
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <div class="footer-bottom-content">
-                <p class="mb-0">
-                  © تمامی حقوق متعلق به <strong>نوین صنعت - فلز</strong> می‌باشد
+              <div class="footer-bottom-content text-center border-top pt-4">
+                <p class="mb-2">
+                  © تمامی حقوق متعلق به <strong>نوین صنعت فلز</strong> می‌باشد
                 </p>
-                <div class="credits">
+                <div class="credits small text-muted">
                   Developed by <a href="https://amirhamidi.pythonanywhere.com/">Amir Hamidi</a> | Designed by <a href="https://alirezakamankesh.pythonanywhere.com/">Alireza Kamankesh</a>
                 </div>
               </div>

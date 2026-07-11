@@ -13,47 +13,56 @@
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
+/*--------------------------------------------------------------
+# Font & Color Variables
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Font & Color Variables (بر اساس رنگ‌های کارت پستال)
+--------------------------------------------------------------*/
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Montserrat",  sans-serif;
-  --nav-font: "Raleway",  sans-serif;
+  /* فونت */
+  --default-font: "Vazirmatn", "Roboto", sans-serif;
+  --heading-font: "Vazirmatn", "Montserrat", sans-serif;
+  --nav-font: "Vazirmatn", "Raleway", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2d465e; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #2986cc; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  /* رنگ‌های جدید بر اساس کارت پستال */
+  --background-color: #faf8f5; /* سفید چرک/کرمی پس‌زمینه کل سایت */
+  --default-color: #1a1a1a; /* مشکی برای متن‌ها */
+  --heading-color: #111111; /* مشکی تیره برای تیترها */
+  --accent-color: #1e5a36; /* سبز تیره، دقیقاً مثل رنگ چاپ شده روی کارت */
+  --surface-color: #ffffff; /* سفید برای باکس‌ها */
+  --contrast-color: #ffffff; 
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #000000;  /* The default color of the main navmenu links */
-  --nav-hover-color: #2986cc; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #2986cc; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #111111; /* منوی بالا مشکی */
+  --nav-hover-color: #1e5a36; /* هاور منو سبز تیره */
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #111111;
+  --nav-dropdown-hover-color: #1e5a36;
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
-.light-background {
-  --background-color: #f0f1f2;
-  --surface-color: #ffffff;
-}
-
+/* اختصاصی برای فوتر تیره */
 .dark-background {
-  --background-color: #060606;
+  --background-color: #181818; /* فوتر مشکی مات */
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #252525;
+  --surface-color: #2a2a2a;
   --contrast-color: #ffffff;
 }
 
+/* اعمال رنگ‌های جدید به دکمه‌ها */
+.btn-primary {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: #ffffff !important;
+}
+.btn-primary:hover {
+    background-color: #144426 !important; /* سبز تیره‌تر برای هاور */
+}
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
@@ -4728,4 +4737,88 @@ section,
   padding-left: 5px;
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
+}
+/*--------------------------------------------------------------
+# اضافات شخصی‌سازی شده برای نوین صنعت فلز
+--------------------------------------------------------------*/
+
+/* ۱. بارگذاری فونت وزیرمتن */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.3/Vazirmatn-font-face.css');
+
+/* ۲. اعمال فونت روی کل سایت */
+body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
+    font-family: 'Vazirmatn', sans-serif !important;
+}
+
+/* ۳. تاریک کردن فوتر و تغییر رنگ لینک‌ها */
+.footer {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    border-top: 2px solid #28a745 !important;
+}
+
+.footer .sitename, 
+.footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 {
+    color: #ffffff !important;
+}
+
+.footer a {
+    color: #cccccc !important;
+}
+
+.footer a:hover {
+    color: #28a745 !important;
+}
+
+/* ۴. راست‌چین کردن کامل فرم‌ها و باکس‌های تماس */
+.contact .form-container .form-floating .form-control {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+.contact .form-container .form-floating label {
+    right: 1.25rem !important;
+    left: auto !important;
+}
+
+/* ۵. تنظیم آیکون‌های شبکه‌های اجتماعی در هدر */
+.header-social-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-social-links a {
+    color: #ffffff !important; /* آیکون‌های سفید در پس‌زمینه مشکی */
+}
+
+.header-social-links a:hover {
+    color: #28a745 !important; /* هاور سبز */
+}
+
+/* ۶. استایل دکمه‌های سایت (سبز) */
+.btn-primary {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    background-color: #218838 !important;
+    border-color: #218838 !important;
+}
+/* ۷. استایل بخش جستجو (اگر در هدر اضافه شد) */
+.search-widget form {
+    border: 1px solid #28a745 !important;
+}
+.search-widget form button {
+    color: #28a745 !important;
+}
+
+/* ۸. راست‌چین کردن محتوای بخش تیم و درباره ما */
+.about .feature-item {
+    text-align: right !important;
+}
+.team .member-info {
+    text-align: center !important; /* تیم مرکزی باشد */
 }

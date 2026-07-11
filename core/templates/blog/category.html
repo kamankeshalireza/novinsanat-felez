@@ -111,11 +111,11 @@
               <ul>
                 {% if page_obj.has_previous %}
                   <li>
-                    <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i class="bi bi-chevron-left"></i></a>
+                    <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i class="bi bi-chevron-right"></i></a>
                   </li>
                 {% else %}
                   <li>
-                    <a href="#"><i class="bi bi-chevron-left"></i></a>
+                    <a href="#"><i class="bi bi-chevron-right"></i></a>
                   </li>
                 {% endif %}
 
@@ -135,11 +135,11 @@
 
                 {% if page_obj.has_next %}
                   <li>
-                    <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i class="bi bi-chevron-right"></i></a>
+                    <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i class="bi bi-chevron-left"></i></a>
                   </li>
                 {% else %}
                   <li>
-                    <a href="#"><i class="bi bi-chevron-right"></i></a>
+                    <a href="#"><i class="bi bi-chevron-left"></i></a>
                   </li>
                 {% endif %}
               </ul>

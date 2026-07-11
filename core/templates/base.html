@@ -26,6 +26,48 @@
 
     <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
 
+    <!-- استایل‌های اضافی برای جستجو و آیکون‌ها -->
+    <style>
+      /* استایل باکس جستجو */
+      .search-container {
+          display: none;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: #fff;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          z-index: 999;
+          width: 300px;
+      }
+      .search-container.active {
+          display: block;
+      }
+      .search-container input {
+          width: 100%;
+          padding: 8px 12px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          outline: none;
+      }
+      
+      /* رنگ‌های اختصاصی برای آیکون‌های شبکه‌های اجتماعی */
+      .header-social-links a.instagram { color: #E1306C !important; }
+      .header-social-links a.telegram { color: #0088CC !important; }
+      .header-social-links a.whatsapp { color: #25D366 !important; }
+      
+      /* رنگ‌بندی بخش توسعه‌دهنده و طراح در فوتر تیره */
+      .footer .credits,
+      .footer .credits a {
+          color: #aaaaaa !important; /* طوسی روشن برای خوانایی */
+          font-weight: 400;
+      }
+      .footer .credits a:hover {
+          color: #28a745 !important; /* هاور سبز */
+      }
+    </style>
+
     {% block extra_css %}
 
     {% endblock %}
@@ -80,13 +122,24 @@
                 تماس با ما
               </a>
             </li>
+            <!-- جستجو با آیکون و باکس مخفی -->
+            <li style="position: relative;">
+              <a href="javascript:void(0);" onclick="toggleSearch()"><i class="bi bi-search"></i></a>
+              <div id="searchBox" class="search-container">
+                <form action="{% url 'blog:post_list' %}" method="get">
+                  <input type="text" name="q" placeholder="جستجو در سایت..." />
+                </form>
+              </div>
+            </li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <!-- شبکه‌های اجتماعی هدر -->
+        <!-- شبکه‌های اجتماعی هدر (اینستاگرام، تلگرام، واتساپ) -->
         <div class="header-social-links">
           <a href="https://www.instagram.com/novin.sanat.felez" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://t.me/AfshinGholamii" target="_blank" class="telegram"><i class="bi bi-telegram"></i></a>
+          <a href="https://wa.me/989127920223" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
     </header>
@@ -97,12 +150,12 @@
       {% endblock %}
     </main>
 
-    <footer id="footer" class="footer position-relative light-background">
+    <footer id="footer" class="footer position-relative dark-background">
       <div class="container">
         <div class="row gy-5">
           
-          <!-- ستون ۱: برند و لینک‌های مفید -->
-          <div class="col-lg-3 col-md-6">
+          <!-- ستون ۱: برند -->
+          <div class="col-lg-4 col-md-6">
             <div class="footer-brand">
               <a href="{% url 'website:index' %}" class="logo d-flex align-items-center mb-3">
                 <span class="sitename">نوین صنعت فلز</span>
@@ -115,40 +168,33 @@
                 <li><a href="#">اکسسوری و دکوراتیو</a></li>
                 <li><a href="#">قطعات سفارشی صنعتی</a></li>
               </ul>
-
-              <div class="social-links mt-4">
-                <a href="https://www.instagram.com/novin.sanat.felez" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-              </div>
             </div>
           </div>
 
-          <!-- ستون ۲: سوالات متداول (FAQ) -->
-          <div class="col-lg-3 col-md-6">
+          <!-- ستون ۲: سوالات متداول -->
+          <div class="col-lg-4 col-md-6">
             <h5>سوالات متداول (FAQ)</h5>
-            <ul class="list-unstyled footer-links">
-              <li>
+            <ul class="list-unstyled footer-links" style="direction: rtl; text-align: right;">
+              <li class="mb-3">
                 <strong>چطور می‌توانم سفارش بدم؟</strong><br />
-                <small>از طریق صفحه تماس با ما، فرم را پر کنید یا در دایرکت اینستاگرام پیام دهید.</small>
+                <small style="color: #aaa;">از طریق صفحه تماس با ما، فرم را پر کنید یا در دایرکت اینستاگرام پیام دهید.</small>
               </li>
-              <li>
+              <li class="mb-3">
                 <strong>زمان ساخت چقدر است؟</strong><br />
-                <small>بسته به پیچیدگی طرح، بین ۳ روز تا ۲ هفته زمان می‌برد.</small>
+                <small style="color: #aaa;">بسته به پیچیدگی طرح، بین ۳ روز تا ۲ هفته زمان می‌برد.</small>
               </li>
-              <li>
+              <li class="mb-3">
                 <strong>آیا امکان ارسال به شهرستان وجود دارد؟</strong><br />
-                <small>بله، محصولات با پست پیشتاز یا باربری به سراسر کشور ارسال می‌شوند.</small>
+                <small style="color: #aaa;">بله، محصولات با پست پیشتاز یا باربری به سراسر کشور ارسال می‌شوند.</small>
               </li>
             </ul>
           </div>
 
-          <!-- ستون ۳: اطلاعات تماس و راهنما -->
-          <div class="col-lg-3 col-md-6">
+          <!-- ستون ۳: ارتباط با ما (فقط آدرس و لینک‌های مفید) -->
+          <div class="col-lg-4 col-md-6">
             <h5>ارتباط با ما</h5>
             <ul class="list-unstyled footer-links">
               <li><i class="bi bi-geo-alt-fill me-2"></i> پاکدشت، خلیل شیرازی، بزرگراه امام رضا ۷۷</li>
-              <li><i class="bi bi-whatsapp me-2"></i> <a href="https://wa.me/989127920223" target="_blank">۰۹۱۲۷۹۲۰۲۲۳</a></li>
-              <li><i class="bi bi-telegram me-2"></i> <a href="https://t.me/AfshinGholamii" target="_blank">@AfshinGholamii</a></li>
-              <li><i class="bi bi-telephone-fill me-2"></i> <a href="tel:+989127920223">۰۹۱۲۷۹۲۰۲۲۳</a></li>
             </ul>
             
             <h5 class="mt-4">لینک‌های مفید</h5>
@@ -157,16 +203,6 @@
               <li><a href="{% url 'website:contact' %}">نحوه سفارش</a></li>
               <li><a href="#">قوانین و شرایط</a></li>
             </ul>
-          </div>
-
-          <!-- ستون ۴: تماس سریع -->
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-cta p-4 bg-light rounded shadow-sm text-center">
-              <h5>برای سفارش و مشاوره</h5>
-              <p class="mb-3">همین حالا با ما در ارتباط باشید.</p>
-              <a href="{% url 'website:contact' %}" class="btn btn-primary w-100 mb-2">فرم تماس</a>
-              <a href="https://wa.me/989127920223" target="_blank" class="btn btn-success w-100"><i class="bi bi-whatsapp"></i> چت واتساپ</a>
-            </div>
           </div>
 
         </div>
@@ -180,7 +216,7 @@
                 <p class="mb-2">
                   © تمامی حقوق متعلق به <strong>نوین صنعت فلز</strong> می‌باشد
                 </p>
-                <div class="credits small text-muted">
+                <div class="credits small">
                   Developed by <a href="https://amirhamidi.pythonanywhere.com/">Amir Hamidi</a> | Designed by <a href="https://alirezakamankesh.pythonanywhere.com/">Alireza Kamankesh</a>
                 </div>
               </div>
@@ -201,6 +237,24 @@
     <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
 
     <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <!-- اسکریپت جستجو -->
+    <script>
+      function toggleSearch() {
+        var searchBox = document.getElementById("searchBox");
+        searchBox.classList.toggle("active");
+      }
+      // بستن باکس جستجو با کلیک در جای دیگر
+      document.addEventListener('click', function(event) {
+        var searchBox = document.getElementById("searchBox");
+        var searchIcon = document.querySelector('a[onclick="toggleSearch()"]');
+        if (searchBox.classList.contains('active') && 
+            !searchBox.contains(event.target) && 
+            !searchIcon.contains(event.target)) {
+          searchBox.classList.remove('active');
+        }
+      });
+    </script>
 
     {% block extra_js %}
 

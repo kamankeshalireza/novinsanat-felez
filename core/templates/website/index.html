@@ -3,7 +3,7 @@
 {% load blog_tags %}
 
 {% block title %}
-  صفحه اصلی
+  صفحه اصلی - نوین صنعت فلز
 {% endblock %}
 
 {% block nav_home_active %}
@@ -31,83 +31,87 @@
         </script>
 
         <div class="swiper-wrapper">
+          <!-- اسلاید ۱ -->
           <div class="swiper-slide">
             <div class="blog-hero-item">
-              <img src="{% static 'assets/img/blog/blog-hero-1.webp' %}" alt="Blog Hero Image" class="img-fluid" />
+              <!-- اینجا آدرس عکس اول را بگذارید -->
+              <img src="{% static 'assets/img/blog/blog-hero-1.webp' %}" alt="خلق هنر از دل فلز" class="img-fluid" />
               <div class="blog-hero-content">
-                <span class="category">Lifestyle</span>
-                <h1>5 Efficient Rules How to Organize Working Place Relationship</h1>
-                <div class="meta">
-                  <span class="author">BY <a href="#">Dary Smith</a></span>
-                  <span class="date">02 Jan, 2024</span>
-                  <span class="read-time">3 Minute Read</span>
-                  <span class="views">1.9k views</span>
-                </div>
-                <a href="#" class="read-more">Continue Reading <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="blog-hero-item">
-              <img src="{% static 'assets/img/blog/blog-hero-2.webp' %}" alt="Blog Hero Image" class="img-fluid" />
-              <div class="blog-hero-content">
-                <span class="category">Business</span>
-                <h1>The Future of Remote Work and Digital Transformation</h1>
-                <div class="meta">
-                  <span class="author">BY <a href="#">Mark Johnson</a></span>
-                  <span class="date">12 Jan, 2024</span>
-                  <span class="read-time">4 Minute Read</span>
-                  <span class="views">2.3k views</span>
-                </div>
-                <a href="#" class="read-more">Continue Reading <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="blog-hero-item">
-              <img src="{% static 'assets/img/blog/blog-hero-3.webp' %}" alt="Blog Hero Image" class="img-fluid" />
-              <div class="blog-hero-content">
-                <span class="category">art</span>
+                <span class="category" style="background-color: #1e5a36;">نوین صنعت فلز</span>
                 <h1>خلق هنر از دل فلز</h1>
                 <div class="meta">
-                  <span class="author">BY <a href="#">afshin gholami</a></span>
-                  <span class="date">10 Jan, 2024</span>
-                  <span class="read-time">5 Minute Read</span>
-                  <span class="views">3.1k views</span>
+                  <span class="author">هنرمند: <a href="#">افشین غلامی</a></span>
+                  <span class="date">از سال ۱۳۹۹</span>
                 </div>
-                <a href="#" class="read-more">Continue Reading <i class="bi bi-arrow-right"></i></a>
+                <a href="{% url 'website:about' %}" class="read-more">درباره ما <i class="bi bi-arrow-left"></i></a>
               </div>
             </div>
           </div>
+
+          <!-- اسلاید ۲ -->
           <div class="swiper-slide">
             <div class="blog-hero-item">
-              <img src="{% static 'assets/img/blog/blog-hero-4.webp' %}" alt="Blog Hero Image" class="img-fluid" />
+              <!-- اینجا آدرس عکس دوم را بگذارید -->
+              <img src="{% static 'assets/img/blog/blog-hero-2.webp' %}" alt="دست‌ساز، با عشق" class="img-fluid" />
               <div class="blog-hero-content">
-                <span class="category">Leadership</span>
-                <h1>Building High-Performance Teams in a Digital Age</h1>
+                <span class="category" style="background-color: #1e5a36;">دست‌ساز</span>
+                <h1>دست‌ساز، با عشق</h1>
                 <div class="meta">
-                  <span class="author">BY <a href="#">David Chen</a></span>
-                  <span class="date">8 Jan, 2024</span>
-                  <span class="read-time">4 Minute Read</span>
-                  <span class="views">2.7k views</span>
+                  <span class="author">هنرمند: <a href="#">افشین غلامی</a></span>
+                  <span class="date">سفارشی‌سازی</span>
                 </div>
-                <a href="#" class="read-more">Continue Reading <i class="bi bi-arrow-right"></i></a>
+                <a href="{% url 'website:contact' %}" class="read-more">سفارش دهید <i class="bi bi-arrow-left"></i></a>
               </div>
             </div>
           </div>
+
+          <!-- اسلاید ۳ -->
           <div class="swiper-slide">
             <div class="blog-hero-item">
-              <img src="{% static 'assets/img/blog/blog-hero-5.webp' %}" alt="Blog Hero Image" class="img-fluid" />
+              <!-- اینجا آدرس عکس سوم را بگذارید -->
+              <img src="{% static 'assets/img/blog/blog-hero-3.webp' %}" alt="از ضایعات تا شاهکار" class="img-fluid" />
               <div class="blog-hero-content">
-                <span class="category">Innovation</span>
-                <h1>Sustainable Business Practices for the Modern Enterprise</h1>
+                <span class="category" style="background-color: #1e5a36;">بازیافت</span>
+                <h1>از ضایعات تا شاهکار</h1>
                 <div class="meta">
-                  <span class="author">BY <a href="#">Emma Davis</a></span>
-                  <span class="date">6 Jan, 2024</span>
-                  <span class="read-time">3 Minute Read</span>
-                  <span class="views">2.5k views</span>
+                  <span class="author">هنرمند: <a href="#">افشین غلامی</a></span>
+                  <span class="date">خلاقیت بی‌پایان</span>
                 </div>
-                <a href="#" class="read-more">Continue Reading <i class="bi bi-arrow-right"></i></a>
+                <a href="{% url 'website:about' %}" class="read-more">داستان ما <i class="bi bi-arrow-left"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- اسلاید ۴ -->
+          <div class="swiper-slide">
+            <div class="blog-hero-item">
+              <!-- اینجا آدرس عکس چهارم را بگذارید -->
+              <img src="{% static 'assets/img/blog/blog-hero-4.webp' %}" alt="طراحی برای رویاهای شما" class="img-fluid" />
+              <div class="blog-hero-content">
+                <span class="category" style="background-color: #1e5a36;">طراحی</span>
+                <h1>طراحی برای رویاهای شما</h1>
+                <div class="meta">
+                  <span class="author">هنرمند: <a href="#">افشین غلامی</a></span>
+                  <span class="date">منحصر‌به‌فرد</span>
+                </div>
+                <a href="{% url 'website:contact' %}" class="read-more">مشاوره رایگان <i class="bi bi-arrow-left"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- اسلاید ۵ -->
+          <div class="swiper-slide">
+            <div class="blog-hero-item">
+              <!-- اینجا آدرس عکس پنجم را بگذارید -->
+              <img src="{% static 'assets/img/blog/blog-hero-5.webp' %}" alt="مهارت در جوش و خلق" class="img-fluid" />
+              <div class="blog-hero-content">
+                <span class="category" style="background-color: #1e5a36;">هنر صنعت</span>
+                <h1>مهارت در جوش و خلق</h1>
+                <div class="meta">
+                  <span class="author">هنرمند: <a href="#">افشین غلامی</a></span>
+                  <span class="date">کیفیت ماندگار</span>
+                </div>
+                <a href="{% url 'website:about' %}" class="read-more">نمونه کارها <i class="bi bi-arrow-left"></i></a>
               </div>
             </div>
           </div>

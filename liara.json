@@ -1,0 +1,12 @@
+{
+  "platform": "django",
+  "app": "novinsanat-felez",
+  "django": {
+    "mirror": true,
+    "pythonVersion": "3.12",
+    "timezone": "Asia/Tehran",
+    "collectStatic": true,
+    "compileMessages": false,
+    "modifySettings": false
+  }
+}

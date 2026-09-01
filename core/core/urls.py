@@ -28,4 +28,9 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Static assets (STATIC_URL) are served by WhiteNoise in production.
+# User-uploaded media (STATIC_URL != MEDIA_URL) has no such middleware, so it
+# is served here in both dev and prod. For real scale, move MEDIA storage to
+# an attached Liara Disk (see DEPLOYMENT.md) or S3-compatible Object Storage.
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

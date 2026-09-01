@@ -1,6 +1,7 @@
 asgiref==3.11.1
 Django==5.2.15
-factory_boy==3.3.3
-Faker==40.23.0
-pillow==12.2.0
 sqlparse==0.5.5
+pillow==12.2.0
+whitenoise==6.11.0
+gunicorn==23.0.0
+psycopg2-binary==2.9.10

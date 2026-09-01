@@ -5,12 +5,116 @@
   تماس با ما - نوین صنعت فلز
 {% endblock %}
 
+{% block meta_description %}برای سفارش ساخت مجسمه فلزی، قطعات صنعتی سفارشی یا استعلام قیمت، با نوین صنعت فلز تماس بگیرید. آدرس، شماره تماس و فرم ارسال پیام.{% endblock %}
+
 {% block body_class %}
   contact-page
 {% endblock %}
 
 {% block nav_contact_active %}
   active
+{% endblock %}
+
+{% block extra_css %}
+  <style>
+    /* --- ریسپانسیو موبایل صفحه تماس با ما --- */
+
+    /* جلوگیری از سرریز افقی کل صفحه در موبایل */
+    #contact, .page-title { overflow-x: hidden; }
+
+    /* پشتیبانی از استک شدن ستون‌ها در تبلت/موبایل، اگر contact-wrapper از flex استفاده می‌کند */
+    @media (max-width: 991px) {
+      .contact-wrapper {
+        flex-direction: column;
+      }
+      .contact-info-panel,
+      .contact-form-panel {
+        width: 100%;
+      }
+    }
+
+    /* نقشه گوگل: حذف اندازه ثابت پیکسلی iframe و تبدیل به نسبت واکنش‌گرا */
+    .map-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 45%; /* نسبت ارتفاع به عرض */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100% !important;
+      height: 100% !important;
+      border: 0;
+    }
+    @media (max-width: 576px) {
+      .map-container {
+        padding-bottom: 65%; /* در موبایل نقشه کمی مربعی‌تر و خواناتر شود */
+      }
+    }
+
+    /* کارت‌های اطلاعات تماس: از حالت شبکه چندستونه به تک‌ستونه در موبایل */
+    @media (max-width: 576px) {
+      .contact-info-cards {
+        display: block !important;
+      }
+      .info-card {
+        width: 100%;
+        margin-bottom: 15px;
+        text-align: center;
+        flex-direction: column;
+      }
+      .info-card .icon-container {
+        margin: 0 auto 10px auto;
+      }
+    }
+
+    /* پنل‌های تماس: فاصله‌گذاری مناسب‌تر برای صفحه کوچک */
+    @media (max-width: 576px) {
+      .contact-info-panel,
+      .contact-form-panel,
+      .form-container {
+        padding: 20px 15px !important;
+      }
+      .heading-title {
+        font-size: 26px;
+      }
+    }
+
+    /* شبکه‌های اجتماعی: فاصله لمسی راحت‌تر روی موبایل */
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+    }
+
+    /* فرم: جلوگیری از زوم خودکار سافاری روی iOS با ست کردن حداقل فونت ۱۶px */
+    .contact-form-panel input.form-control,
+    .contact-form-panel textarea.form-control {
+      font-size: 16px;
+    }
+
+    /* دکمه ارسال در موبایل تمام‌عرض و راحت‌تر برای لمس */
+    @media (max-width: 576px) {
+      .btn-submit {
+        width: 100%;
+        padding: 12px 0;
+      }
+    }
+
+    /* بردکرامب: جلوگیری از شکستن نامناسب متن در موبایل */
+    @media (max-width: 480px) {
+      .breadcrumbs ol {
+        flex-wrap: wrap;
+        font-size: 13px;
+      }
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
@@ -67,7 +171,7 @@
               </div>
               <div class="card-content">
                 <h4>ایمیل</h4>
-                <p>info@novinsanatfelez.com</p> <!-- اگر ایمیل دارید اینجا تغییر دهید -->
+                <p style="direction: ltr; display: inline-block;">info@novinsanatfelez.com</p> <!-- اگر ایمیل دارید اینجا تغییر دهید -->
               </div>
             </div>
 
@@ -77,7 +181,7 @@
               </div>
               <div class="card-content">
                 <h4>شماره تماس</h4>
-                <p>09127920223</p>
+                <p><a href="tel:+989127920223" style="color: inherit; text-decoration: none; direction: ltr; display: inline-block;">09127920223</a></p>
               </div>
             </div>
 
@@ -95,7 +199,7 @@
           <div class="social-links-panel">
             <h5>ما را دنبال کنید</h5>
             <div class="social-icons">
-              <a href="https://www.instagram.com/novin.sanat.felez" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.instagram.com/novin.sanat.felez" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام نوین صنعت فلز"><i class="bi bi-instagram"></i></a>
               <!-- لینک‌های دیگر را می‌توانید حذف کنید -->
             </div>
           </div>
@@ -104,7 +208,7 @@
         <!-- بخش فرم تماس -->
         <div class="contact-form-panel">
           <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.960363293384!2d51.693054999999994!3d35.4805245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f91c100766d2593%3A0x70c01c88e5bed14f!2z2YbZiNuM2YYg2LXZhti52Kog2YHZhNiy!5e0!3m2!1sen!2s!4v1782034751329!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.960363293384!2d51.693054999999994!3d35.4805245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f91c100766d2593%3A0x70c01c88e5bed14f!2z2YbZiNuM2YYg2LXZhti52Kog2YHZhNiy!5e0!3m2!1sen!2s!4v1782034751329!5m2!1sen!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="نقشه موقعیت کارگاه نوین صنعت فلز"></iframe>
           </div>
 
           <div class="form-container">

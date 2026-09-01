@@ -4,13 +4,35 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>
-      {% block title %}
-        صفحه اصلی
-      {% endblock %}| نوین صنعت فلز
-    </title>
-    <meta name="description" content="{{ meta_description|default:'' }}" />
-    <meta name="keywords" content="{{ meta_keywords|default:'' }}" />
+
+    <!-- عنوان صفحه: هر صفحه باید عنوان اختصاصی و منحصر به فرد خودش را ست کند -->
+    <title>{% block title %}نوین صنعت فلز | خرید مجسمه و صنایع دستی فلزی از ضایعات{% endblock %}</title>
+
+    <!-- متا توضیحات و کلمات کلیدی: هر صفحه باید این‌ها را override کند برای سئوی بهتر -->
+    <meta name="description" content="{% block meta_description %}{{ meta_description|default:'نوین صنعت فلز، تولید و فروش مجسمه‌های فلزی، اکسسوری دکوراتیو و قطعات سفارشی صنعتی از ضایعات فلز با کیفیت بالا و ارسال به سراسر ایران.' }}{% endblock %}" />
+    <meta name="keywords" content="{% block meta_keywords %}{{ meta_keywords|default:'مجسمه فلزی, صنایع دستی فلزی, هنر فلزی, دکوراتیو فلزی, نوین صنعت فلز, ساخت مجسمه از ضایعات, قطعات سفارشی صنعتی' }}{% endblock %}" />
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}" />
+    <meta name="author" content="نوین صنعت فلز" />
+    <meta name="theme-color" content="#28a745" />
+
+    <!-- URL کنونیک: از محتوای تکراری جلوگیری می‌کند -->
+    <link rel="canonical" href="{% block canonical_url %}https://novinsanatfelez.com{{ request.path }}{% endblock %}" />
+    <link rel="alternate" hreflang="fa-ir" href="https://novinsanatfelez.com{{ request.path }}" />
+
+    <!-- Open Graph برای اشتراک‌گذاری بهتر در شبکه‌های اجتماعی (اینستاگرام، تلگرام، واتساپ) -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
+    <meta property="og:site_name" content="نوین صنعت فلز" />
+    <meta property="og:title" content="{% block og_title %}نوین صنعت فلز | خرید مجسمه و صنایع دستی فلزی از ضایعات{% endblock %}" />
+    <meta property="og:description" content="{% block og_description %}{{ meta_description|default:'تولید و فروش مجسمه‌های فلزی، اکسسوری دکوراتیو و قطعات سفارشی صنعتی از ضایعات فلز با کیفیت بالا و ارسال به سراسر ایران.' }}{% endblock %}" />
+    <meta property="og:url" content="https://novinsanatfelez.com{{ request.path }}" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:image" content="{% block og_image %}https://novinsanatfelez.com{% static 'assets/img/logo.webp' %}{% endblock %}" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{% block twitter_title %}نوین صنعت فلز{% endblock %}" />
+    <meta name="twitter:description" content="{% block twitter_description %}{{ meta_description|default:'تولید و فروش مجسمه‌های فلزی و صنایع دستی از ضایعات فلز.' }}{% endblock %}" />
+    <meta name="twitter:image" content="{% block twitter_image %}https://novinsanatfelez.com{% static 'assets/img/logo.webp' %}{% endblock %}" />
 
     <link href="{% static 'assets/img/favicon.png' %}" rel="icon" />
     <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon" />
@@ -68,6 +90,28 @@
       }
     </style>
 
+    <!-- داده‌ ساختاریافته Schema.org برای معرفی کسب‌وکار به گوگل -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "نوین صنعت فلز",
+      "url": "https://novinsanatfelez.com",
+      "logo": "https://novinsanatfelez.com{% static 'assets/img/logo.webp' %}",
+      "description": "تولید و فروش مجسمه‌های فلزی، اکسسوری دکوراتیو و قطعات سفارشی صنعتی از ضایعات فلز.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "خلیل شیرازی، بزرگراه امام رضا ۷۷",
+        "addressLocality": "پاکدشت",
+        "addressCountry": "IR"
+      },
+      "sameAs": [
+        "https://www.instagram.com/novin.sanat.felez",
+        "https://t.me/AfshinGholamii"
+      ]
+    }
+    </script>
+
     {% block extra_css %}
 
     {% endblock %}
@@ -85,8 +129,7 @@
         
         <!-- لوگوی سایت -->
         <a href="{% url 'website:index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
-         <!-- اینجا آدرس عکس لوگوی خود را وارد کنید -->
-          <img src="{% static 'assets/img/logo.webp' %}" alt="لوگوی نوین صنعت فلز" style="max-height: 60px; width: auto;" />
+          <img src="{% static 'assets/img/logo.webp' %}" alt="لوگوی نوین صنعت فلز - فروش مجسمه و صنایع دستی فلزی" style="max-height: 60px; width: auto;" width="180" height="60" />
         </a>
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -124,10 +167,10 @@
             </li>
             <!-- جستجو با آیکون و باکس مخفی -->
             <li style="position: relative;">
-              <a href="javascript:void(0);" onclick="toggleSearch()"><i class="bi bi-search"></i></a>
+              <a href="javascript:void(0);" onclick="toggleSearch()" aria-label="جستجو در سایت"><i class="bi bi-search"></i></a>
               <div id="searchBox" class="search-container">
-                <form action="{% url 'blog:post_list' %}" method="get">
-                  <input type="text" name="q" placeholder="جستجو در سایت..." />
+                <form action="{% url 'blog:post_list' %}" method="get" role="search">
+                  <input type="text" name="q" placeholder="جستجو در سایت..." aria-label="جستجو" />
                 </form>
               </div>
             </li>
@@ -137,9 +180,9 @@
 
         <!-- شبکه‌های اجتماعی هدر (اینستاگرام، تلگرام، واتساپ) -->
         <div class="header-social-links">
-          <a href="https://www.instagram.com/novin.sanat.felez" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://t.me/AfshinGholamii" target="_blank" class="telegram"><i class="bi bi-telegram"></i></a>
-          <a href="https://wa.me/989127920223" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com/novin.sanat.felez" target="_blank" rel="noopener noreferrer" class="instagram" aria-label="اینستاگرام نوین صنعت فلز"><i class="bi bi-instagram"></i></a>
+          <a href="https://t.me/AfshinGholamii" target="_blank" rel="noopener noreferrer" class="telegram" aria-label="تلگرام نوین صنعت فلز"><i class="bi bi-telegram"></i></a>
+          <a href="https://wa.me/989127920223" target="_blank" rel="noopener noreferrer" class="whatsapp" aria-label="واتساپ نوین صنعت فلز"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
     </header>
@@ -217,7 +260,7 @@
                   © تمامی حقوق متعلق به <strong>نوین صنعت فلز</strong> می‌باشد
                 </p>
                 <div class="credits small">
-                  Developed by <a href="https://amirhamidi.pythonanywhere.com/">Amir Hamidi</a> | Designed by <a href="https://alirezakamankesh.pythonanywhere.com/">Alireza Kamankesh</a>
+                  Developed by <a href="https://amirhamidi.pythonanywhere.com/" rel="nofollow">Amir Hamidi</a> | Designed by <a href="https://alirezakamankesh.pythonanywhere.com/" rel="nofollow">Alireza Kamankesh</a>
                 </div>
               </div>
             </div>
@@ -226,7 +269,7 @@
       </div>
     </footer>
 
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="بازگشت به بالا"><i class="bi bi-arrow-up-short"></i></a>
 
     <div id="preloader"></div>
 

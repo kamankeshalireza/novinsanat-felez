@@ -4,7 +4,7 @@
   <div class="container section-title" data-aos="fade-up">
     <span class="description-title">{{ category_name }}</span>
     <h2>{{ category_name }}</h2>
-    <p>Check out our latest insights, tutorials, and updates in this space.</p>
+    <p>جدیدترین نوشته‌ها و مطالب دسته‌بندی {{ category_name }} را در این بخش مشاهده کنید.</p>
   </div>
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -16,7 +16,7 @@
               {% if hero_post.featured_image %}
                 <img src="{{ hero_post.featured_image.url }}" alt="{{ hero_post.title }}" class="img-fluid" loading="lazy" />
               {% else %}
-                <img src="{% static 'assets/img/blog/blog-post-5.webp' %}" alt="Placeholder" class="img-fluid" loading="lazy" />
+                <img src="{% static 'assets/img/blog/blog-post-5.webp' %}" alt="تصویر پیش‌فرض" class="img-fluid" loading="lazy" />
               {% endif %}
             </div>
             <div class="post-content">
@@ -24,19 +24,19 @@
                 <img src="{% static 'assets/img/person/person-f-8.webp' %}" alt="{{ hero_post.author.username }}" class="author-avatar" />
                 <div class="author-details">
                   <span class="author-name">{{ hero_post.author.get_full_name|default:hero_post.author.username }}</span>
-                  <span class="post-date">{{ hero_post.created_at|date:'d F Y' }}</span>
+                  <span class="post-date">{{ hero_post.created_at|date:'j F Y' }}</span>
                 </div>
               </div>
               <h2 class="post-title"><a href="{{ hero_post.get_absolute_url }}">{{ hero_post.title }}</a></h2>
               <p class="post-excerpt">{{ hero_post.excerpt|default:hero_post.content|truncatewords:30 }}</p>
               <div class="post-stats">
-                <span class="read-time"><i class="bi bi-clock"></i> {{ hero_post.reading_time }} min read</span>
-                <span class="comments"><i class="bi bi-chat-dots"></i> {{ hero_post.approved_comments_count }} comments</span>
+                <span class="read-time"><i class="bi bi-clock"></i> {{ hero_post.reading_time }} دقیقه مطالعه</span>
+                <span class="comments"><i class="bi bi-chat-dots"></i> {{ hero_post.approved_comments_count }} نظر</span>
               </div>
             </div>
           </article>
         {% else %}
-          <p>No featured articles available in this category yet.</p>
+          <p>هنوز مقاله ویژه‌ای در این دسته‌بندی موجود نیست.</p>
         {% endif %}
       </div>
 
@@ -48,7 +48,7 @@
                 {% if post.featured_image %}
                   <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="img-fluid" loading="lazy" />
                 {% else %}
-                  <img src="{% static 'assets/img/blog/blog-post-1.webp' %}" alt="Placeholder" class="img-fluid" loading="lazy" />
+                  <img src="{% static 'assets/img/blog/blog-post-1.webp' %}" alt="تصویر پیش‌فرض" class="img-fluid" loading="lazy" />
                 {% endif %}
               </div>
               <div class="post-content">
@@ -57,7 +57,7 @@
                 {% endif %}
                 <h4 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
                 <div class="post-meta">
-                  <span class="post-date">{{ post.created_at|date:'d F Y' }}</span>
+                  <span class="post-date">{{ post.created_at|date:'j F Y' }}</span>
                 </div>
               </div>
             </article>
@@ -76,7 +76,7 @@
                   {% if post.featured_image %}
                     <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="img-fluid" loading="lazy" />
                   {% else %}
-                    <img src="{% static 'assets/img/blog/blog-post-6.webp' %}" alt="Placeholder" class="img-fluid" loading="lazy" />
+                    <img src="{% static 'assets/img/blog/blog-post-6.webp' %}" alt="تصویر پیش‌فرض" class="img-fluid" loading="lazy" />
                   {% endif %}
                   {% if post.category %}
                     <div class="post-overlay">
@@ -92,7 +92,7 @@
                       <img src="{% static 'assets/img/person/person-f-7.webp' %}" alt="{{ post.author.username }}" class="author-img" />
                       <span class="author-name">{{ post.author.get_full_name|default:post.author.username }}</span>
                     </div>
-                    <span class="read-time">{{ post.reading_time }} min read</span>
+                    <span class="read-time">{{ post.reading_time }} دقیقه مطالعه</span>
                   </div>
                 </div>
               </article>

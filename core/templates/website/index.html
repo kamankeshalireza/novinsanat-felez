@@ -31,7 +31,7 @@
         </script>
 
         <div class="swiper-wrapper">
-          <!-- اسلاید ۱ -->
+          <!-- اسلاید ۱: تنها h1 صفحه (برای سئو) -->
           <div class="swiper-slide">
             <div class="blog-hero-item">
               <!-- اینجا آدرس عکس اول را بگذارید -->
@@ -52,10 +52,10 @@
           <div class="swiper-slide">
             <div class="blog-hero-item">
               <!-- اینجا آدرس عکس دوم را بگذارید -->
-              <img src="{% static 'assets/img/blog/blog-hero-2.webp' %}" alt="دست‌ساز، با عشق" class="img-fluid" />
+              <img src="{% static 'assets/img/blog/blog-hero-2.webp' %}" alt="دست‌ساز، با عشق" class="img-fluid" loading="lazy" />
               <div class="blog-hero-content">
                 <span class="category" style="background-color: #1e5a36;">دست‌ساز</span>
-                <h1>دست‌ساز، با عشق</h1>
+                <h2>دست‌ساز، با عشق</h2>
                 <div class="meta">
                   <span class="author">هنرمند: <a href="#">افشین غلامی</a></span>
                   <span class="date">سفارشی‌سازی</span>
@@ -69,10 +69,10 @@
           <div class="swiper-slide">
             <div class="blog-hero-item">
               <!-- اینجا آدرس عکس سوم را بگذارید -->
-              <img src="{% static 'assets/img/blog/blog-hero-3.webp' %}" alt="از ضایعات تا شاهکار" class="img-fluid" />
+              <img src="{% static 'assets/img/blog/blog-hero-3.webp' %}" alt="از ضایعات تا شاهکار" class="img-fluid" loading="lazy" />
               <div class="blog-hero-content">
                 <span class="category" style="background-color: #1e5a36;">بازیافت</span>
-                <h1>از ضایعات تا شاهکار</h1>
+                <h2>از ضایعات تا شاهکار</h2>
                 <div class="meta">
                   <span class="author">هنرمند: <a href="#">افشین غلامی</a></span>
                   <span class="date">خلاقیت بی‌پایان</span>
@@ -86,10 +86,10 @@
           <div class="swiper-slide">
             <div class="blog-hero-item">
               <!-- اینجا آدرس عکس چهارم را بگذارید -->
-              <img src="{% static 'assets/img/blog/blog-hero-4.webp' %}" alt="طراحی برای رویاهای شما" class="img-fluid" />
+              <img src="{% static 'assets/img/blog/blog-hero-4.webp' %}" alt="طراحی برای رویاهای شما" class="img-fluid" loading="lazy" />
               <div class="blog-hero-content">
                 <span class="category" style="background-color: #1e5a36;">طراحی</span>
-                <h1>طراحی برای رویاهای شما</h1>
+                <h2>طراحی برای رویاهای شما</h2>
                 <div class="meta">
                   <span class="author">هنرمند: <a href="#">افشین غلامی</a></span>
                   <span class="date">منحصر‌به‌فرد</span>
@@ -103,10 +103,10 @@
           <div class="swiper-slide">
             <div class="blog-hero-item">
               <!-- اینجا آدرس عکس پنجم را بگذارید -->
-              <img src="{% static 'assets/img/blog/blog-hero-5.webp' %}" alt="مهارت در جوش و خلق" class="img-fluid" />
+              <img src="{% static 'assets/img/blog/blog-hero-5.webp' %}" alt="مهارت در جوش و خلق" class="img-fluid" loading="lazy" />
               <div class="blog-hero-content">
                 <span class="category" style="background-color: #1e5a36;">هنر صنعت</span>
-                <h1>مهارت در جوش و خلق</h1>
+                <h2>مهارت در جوش و خلق</h2>
                 <div class="meta">
                   <span class="author">هنرمند: <a href="#">افشین غلامی</a></span>
                   <span class="date">کیفیت ماندگار</span>
@@ -125,6 +125,7 @@
 
   {% render_featured_posts limit=5 %}
 
+  {# ⚠️ 'anything' یک اسلاگ واقعی نیست — باید اسلاگ واقعی یک دسته‌بندی موجود (مثل 'majasame-felezi') جایگزینش بشه، وگرنه عنوان و لینک‌های این بخش خالی/خراب می‌مونن #}
   {% render_category_section category_slug='anything' %}
 
   {% render_latest_posts limit=5 %}

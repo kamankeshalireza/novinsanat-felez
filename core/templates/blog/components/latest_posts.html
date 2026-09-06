@@ -16,7 +16,7 @@
               {% if primary_post.featured_image %}
                 <img src="{{ primary_post.featured_image.url }}" alt="{{ primary_post.title }}" class="img-fluid w-100" loading="lazy" />
               {% else %}
-                <img src="{% static 'assets/img/blog/blog-hero-4.webp' %}" alt="Placeholder image" class="img-fluid w-100" loading="lazy" />
+                <img src="{% static 'assets/img/blog/blog-hero-4.webp' %}" alt="تصویر پیش‌فرض" class="img-fluid w-100" loading="lazy" />
               {% endif %}
             </figure>
 
@@ -46,11 +46,11 @@
                 {% endif %}
               </div>
 
-              <a href="{{ primary_post.get_absolute_url }}" class="readmore stretched-link"><span>Continue</span><i class="bi bi-arrow-right"></i></a>
+              <a href="{{ primary_post.get_absolute_url }}" class="readmore stretched-link"><span>ادامه مطلب</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </article>
         {% else %}
-          <p>No recent updates found.</p>
+          <p>به‌روزرسانی اخیری یافت نشد.</p>
         {% endif %}
       </div>
 
@@ -63,7 +63,7 @@
                   {% if post.featured_image %}
                     <img src="{{ post.featured_image.url }}" class="img-fluid" alt="{{ post.title }}" loading="lazy" />
                   {% else %}
-                    <img src="{% static 'assets/img/blog/blog-post-square-2.webp' %}" class="img-fluid" alt="Placeholder layout" loading="lazy" />
+                    <img src="{% static 'assets/img/blog/blog-post-square-2.webp' %}" class="img-fluid" alt="تصویر پیش‌فرض" loading="lazy" />
                   {% endif %}
                 </div>
                 <div class="content">
@@ -75,13 +75,13 @@
                     {% endif %}
                   </div>
                   <h4 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
-                  <a href="{{ post.get_absolute_url }}" class="readmore"><span>Read Article</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="{{ post.get_absolute_url }}" class="readmore"><span>مطالعه مقاله</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </article>
             </div>
           {% empty %}
             {% if not primary_post %}
-              <p>Stay tuned! Articles are coming soon.</p>
+              <p>به‌زودی مطالب جدید منتشر می‌شود.</p>
             {% endif %}
           {% endfor %}
         </div>

@@ -41,11 +41,12 @@ class PostAdmin(admin.ModelAdmin):
         "author",
         "category",
         "status",
+        "price",
         "reading_time",
         "created_at",
         "thumbnail",
     )
-    list_filter = ("status", "category", "tags", "created_at")
+    list_filter = ("status", "category", "tags", "price", "created_at")
     search_fields = ("title", "excerpt", "content")
     prepopulated_fields = {"slug": ("title",)}
     autocomplete_fields = ("author", "category", "tags")

@@ -53,6 +53,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=220, unique=True, blank=True)
+    price = models.CharField(max_length=200)
     excerpt = models.TextField(max_length=500, blank=True)
     content = models.TextField()
     featured_image = models.ImageField(

@@ -88,6 +88,29 @@
       .footer .credits a:hover {
           color: #28a745 !important; /* هاور سبز */
       }
+
+      /* --- برچسب قیمت روی کارت‌های محصول (هرگز روی عکس، همیشه زیر آن) --- */
+      .card-price {
+          display: inline-flex;
+          align-items: baseline;
+          gap: 4px;
+          background: #1e5a36;
+          color: #fff !important;
+          font-weight: 700;
+          font-size: 14px;
+          padding: 4px 12px;
+          border-radius: 8px;
+          margin: 6px 0;
+      }
+      .card-price.inquiry {
+          background: #f2f2f2;
+          color: #333 !important;
+      }
+      .card-price .currency {
+          font-size: 11px;
+          opacity: .85;
+          font-weight: 400;
+      }
     </style>
 
     <!-- داده‌ ساختاریافته Schema.org برای معرفی کسب‌وکار به گوگل -->

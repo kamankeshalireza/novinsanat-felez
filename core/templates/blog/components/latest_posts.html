@@ -31,6 +31,11 @@
               {% endif %}
 
               <h3 class="title">{{ primary_post.title }}</h3>
+              {% if primary_post.price %}
+                <div><span class="card-price"><span class="amount">{{ primary_post.price|floatformat:0 }}</span><span class="currency">تومان</span></span></div>
+              {% else %}
+                <div><span class="card-price inquiry">استعلام قیمت</span></div>
+              {% endif %}
               <p class="excerpt d-none d-md-block">{{ primary_post.excerpt|default:primary_post.content|truncatewords:20 }}</p>
 
               <div class="meta d-flex align-items-center gap-3">
@@ -75,6 +80,11 @@
                     {% endif %}
                   </div>
                   <h4 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                  {% if post.price %}
+                    <div><span class="card-price"><span class="amount">{{ post.price|floatformat:0 }}</span><span class="currency">تومان</span></span></div>
+                  {% else %}
+                    <div><span class="card-price inquiry">استعلام قیمت</span></div>
+                  {% endif %}
                   <a href="{{ post.get_absolute_url }}" class="readmore"><span>مطالعه مقاله</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </article>

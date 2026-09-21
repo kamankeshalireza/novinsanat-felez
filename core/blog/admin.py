@@ -40,11 +40,14 @@ class PostAdmin(admin.ModelAdmin):
         "title",
         "author",
         "category",
+        "price",
+        "is_available",
         "status",
         "reading_time",
         "created_at",
         "thumbnail",
     )
+    list_editable = ("price", "is_available")
     list_filter = ("status", "category", "tags", "created_at")
     search_fields = ("title", "excerpt", "content")
     prepopulated_fields = {"slug": ("title",)}

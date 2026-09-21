@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -76,6 +77,14 @@ class Post(models.Model):
     reading_time = models.PositiveIntegerField(
         default=1, help_text="Estimated reading time in minutes"
     )
+    price = models.PositiveIntegerField(
+        verbose_name="قیمت (تومان)",
+        validators=[MinValueValidator(0)],
+        null=True,
+        blank=True,
+        help_text="اگر خالی بگذارید، به‌جای عدد «استعلام قیمت» نمایش داده می‌شود.",
+    )
+    is_available = models.BooleanField(default=True, verbose_name="موجود است؟")
     status = models.CharField(
         max_length=10, choices=Status.choices, default=Status.DRAFT
     )

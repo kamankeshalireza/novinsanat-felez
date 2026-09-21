@@ -28,6 +28,11 @@
                 </div>
               </div>
               <h2 class="post-title"><a href="{{ hero_post.get_absolute_url }}">{{ hero_post.title }}</a></h2>
+              {% if hero_post.price %}
+                <div><span class="card-price"><span class="amount">{{ hero_post.price|floatformat:0 }}</span><span class="currency">تومان</span></span></div>
+              {% else %}
+                <div><span class="card-price inquiry">استعلام قیمت</span></div>
+              {% endif %}
               <p class="post-excerpt">{{ hero_post.excerpt|default:hero_post.content|truncatewords:30 }}</p>
               <div class="post-stats">
                 <span class="read-time"><i class="bi bi-clock"></i> {{ hero_post.reading_time }} دقیقه مطالعه</span>
@@ -56,6 +61,11 @@
                   <span class="post-category">{{ post.category.name }}</span>
                 {% endif %}
                 <h4 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                {% if post.price %}
+                  <div><span class="card-price"><span class="amount">{{ post.price|floatformat:0 }}</span><span class="currency">تومان</span></span></div>
+                {% else %}
+                  <div><span class="card-price inquiry">استعلام قیمت</span></div>
+                {% endif %}
                 <div class="post-meta">
                   <span class="post-date">{{ post.created_at|date:'j F Y' }}</span>
                 </div>
@@ -86,6 +96,11 @@
                 </div>
                 <div class="post-content">
                   <h3 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                  {% if post.price %}
+                    <div><span class="card-price"><span class="amount">{{ post.price|floatformat:0 }}</span><span class="currency">تومان</span></span></div>
+                  {% else %}
+                    <div><span class="card-price inquiry">استعلام قیمت</span></div>
+                  {% endif %}
                   <p class="excerpt">{{ post.excerpt|default:post.content|truncatewords:20 }}</p>
                   <div class="post-footer">
                     <div class="author-info">

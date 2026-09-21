@@ -59,6 +59,11 @@
                   </div>
                 </div>
                 <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                {% if post.price %}
+                  <div><span class="card-price"><span class="amount">{{ post.price|floatformat:0 }}</span><span class="currency">تومان</span></span></div>
+                {% else %}
+                  <div><span class="card-price inquiry">استعلام قیمت</span></div>
+                {% endif %}
                 <p>{{ post.excerpt|default:post.content|truncatewords:20 }}</p>
                 <div class="blog-footer">
                   <div class="reading-time">

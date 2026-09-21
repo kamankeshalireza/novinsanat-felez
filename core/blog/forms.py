@@ -12,7 +12,7 @@ class CommentForm(forms.ModelForm):
                 attrs={
                     "class": "form-control",
                     "id": "name",
-                    "placeholder": "Enter your full name",
+                    "placeholder": "نام و نام خانوادگی خود را وارد کنید",
                     "required": "required",
                 }
             ),
@@ -20,7 +20,7 @@ class CommentForm(forms.ModelForm):
                 attrs={
                     "class": "form-control",
                     "id": "email",
-                    "placeholder": "Enter your email address",
+                    "placeholder": "آدرس ایمیل خود را وارد کنید",
                     "required": "required",
                 }
             ),
@@ -28,7 +28,7 @@ class CommentForm(forms.ModelForm):
                 attrs={
                     "class": "form-control",
                     "id": "website",
-                    "placeholder": "Your website (optional)",
+                    "placeholder": "وب‌سایت شما (اختیاری)",
                 }
             ),
             "comment": forms.Textarea(
@@ -36,17 +36,17 @@ class CommentForm(forms.ModelForm):
                     "class": "form-control",
                     "id": "comment",
                     "rows": 5,
-                    "placeholder": "Write your thoughts here...",
+                    "placeholder": "نظر خود را بنویسید...",
                     "required": "required",
                 }
             ),
             "parent": forms.HiddenInput(),
         }
         labels = {
-            "full_name": "Full Name",
-            "email": "Email Address",
-            "website": "Website",
-            "comment": "Your Comment",
+            "full_name": "نام و نام خانوادگی",
+            "email": "آدرس ایمیل",
+            "website": "وب‌سایت",
+            "comment": "نظر شما",
         }
 
     def __init__(self, *args, **kwargs):

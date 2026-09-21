@@ -184,29 +184,17 @@
 
           <h1 class="product-title">{{ post.title }}</h1>
 
-          <div class="product-price-row">
-            {% if post.price %}
-              <span class="price-badge">
-                <span class="amount">{{ post.price|floatformat:0 }}</span>
-                <span class="currency">تومان</span>
-              </span>
+          <div class="author-meta">
+            {% if post.author.profile.avatar %}
+              <img src="{{ post.author.profile.avatar.url }}" alt="{{ post.author.get_full_name|default:post.author.username }}" class="author-avatar" />
             {% else %}
-              <span class="price-badge inquiry">استعلام قیمت</span>
+              <img src="{% static 'assets/img/person/person-f-9.webp' %}" alt="{{ post.author.get_full_name|default:post.author.username }}" class="author-avatar" />
             {% endif %}
-          </div>
-
-          <p class="product-excerpt">{{ post.excerpt }}</p>
-
-          <div class="product-meta-row">
-            {% if post.author.get_full_name %}
-              <div class="author-block">
-                {% if post.author.profile.avatar %}
-                  <img src="{{ post.author.profile.avatar.url }}" alt="{{ post.author.get_full_name }}" class="author-avatar" />
-                {% endif %}
-                <span class="author-name">{{ post.author.get_full_name }}</span>
-              </div>
-            {% endif %}
-            <div class="stats">
+            <div class="author-details">
+              <h4>{{ post.author.get_full_name|default:post.author.username }}</h4>
+              <span>نویسنده</span>
+            </div>
+            <div class="article-stats">
               <span><i class="bi bi-calendar3"></i> {{ post.created_at|date:'j F Y' }}</span>
               <span><i class="bi bi-clock-history"></i> {{ post.reading_time }} دقیقه</span>
               <span><i class="bi bi-chat-dots"></i> {{ comments_count }}</span>

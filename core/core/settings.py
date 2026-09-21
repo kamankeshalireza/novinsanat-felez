@@ -61,7 +61,9 @@ if not SECRET_KEY:
         # commands only. Real requests are never served with this key, since
         # the real SECRET_KEY env var is injected once the container is
         # actually running (see _BUILD_ONLY_COMMANDS note above).
-        SECRET_KEY = "django-insecure-build-time-placeholder-do-not-use-for-serving-requests"
+        SECRET_KEY = (
+            "django-insecure-build-time-placeholder-do-not-use-for-serving-requests"
+        )
     else:
         raise RuntimeError(
             "SECRET_KEY environment variable is not set. "
@@ -224,8 +226,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # File upload hardening
 # ------------------------------------------------------------------------------
 
-DATA_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024   # 5 MB
-FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024   # 5 MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024  # 5 MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024  # 5 MB
 FILE_UPLOAD_PERMISSIONS = 0o644
 
 
@@ -260,8 +262,12 @@ if not DEBUG:
     X_FRAME_OPTIONS = "DENY"
 
     # A session that outlives the browser tab is a smaller attack surface.
-    SESSION_EXPIRE_AT_BROWSER_CLOSE = env_bool("SESSION_EXPIRE_AT_BROWSER_CLOSE", default=False)
-    SESSION_COOKIE_AGE = int(os.environ.get("SESSION_COOKIE_AGE", str(60 * 60 * 24 * 14)))  # 14 days
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = env_bool(
+        "SESSION_EXPIRE_AT_BROWSER_CLOSE", default=False
+    )
+    SESSION_COOKIE_AGE = int(
+        os.environ.get("SESSION_COOKIE_AGE", str(60 * 60 * 24 * 14))
+    )  # 14 days
 
 
 # ------------------------------------------------------------------------------

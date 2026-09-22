@@ -184,17 +184,29 @@
 
           <h1 class="product-title">{{ post.title }}</h1>
 
-          <div class="author-meta">
-            {% if post.author.profile.avatar %}
-              <img src="{{ post.author.profile.avatar.url }}" alt="{{ post.author.get_full_name|default:post.author.username }}" class="author-avatar" />
+          <div class="product-price-row">
+            {% if post.price %}
+              <span class="price-badge">
+                <span class="amount">{{ post.price|floatformat:0 }}</span>
+                <span class="currency">تومان</span>
+              </span>
             {% else %}
-              <img src="{% static 'assets/img/person/person-f-9.webp' %}" alt="{{ post.author.get_full_name|default:post.author.username }}" class="author-avatar" />
+              <span class="price-badge inquiry">استعلام قیمت</span>
             {% endif %}
-            <div class="author-details">
-              <h4>{{ post.author.get_full_name|default:post.author.username }}</h4>
-              <span>نویسنده</span>
-            </div>
-            <div class="article-stats">
+          </div>
+
+          <p class="product-excerpt">{{ post.excerpt }}</p>
+
+          <div class="product-meta-row">
+            {% if post.author.get_full_name %}
+              <div class="author-block">
+                {% if post.author.profile.avatar %}
+                  <img src="{{ post.author.profile.avatar.url }}" alt="{{ post.author.get_full_name }}" class="author-avatar" />
+                {% endif %}
+                <span class="author-name">{{ post.author.get_full_name }}</span>
+              </div>
+            {% endif %}
+            <div class="stats">
               <span><i class="bi bi-calendar3"></i> {{ post.created_at|date:'j F Y' }}</span>
               <span><i class="bi bi-clock-history"></i> {{ post.reading_time }} دقیقه</span>
               <span><i class="bi bi-chat-dots"></i> {{ comments_count }}</span>
@@ -307,3 +319,125 @@
                     </div>
 
                     <div class="comment-actions">
+                      <button class="action-btn reply-btn" aria-label="پاسخ به نظر" data-comment-id="{{ comment.id }}">
+                        <i class="bi bi-chat"></i>
+                        <span>پاسخ</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {% with replies=comment.replies.all %}
+                {% if replies %}
+                  <!-- پاسخ‌ها -->
+                  <div class="replies-container">
+                    {% for reply in replies %}
+                      {% if reply.is_approved %}
+                        <div class="comment-box reply">
+                          <div class="comment-wrapper">
+                            <div class="avatar-wrapper">
+                              <img src="{% static 'assets/img/person/person-f-9.webp' %}" alt="آواتار" loading="lazy" />
+                              <span class="status-indicator"></span>
+                            </div>
+
+                            <div class="comment-content">
+                              <div class="comment-header">
+                                <div class="user-info">
+                                  <h4>{{ reply.full_name }}</h4>
+                                  <span class="time-badge">
+                                    <i class="bi bi-clock"></i>
+                                    {{ reply.created_at|timesince }} پیش
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div class="comment-body">
+                                <p>{{ reply.comment }}</p>
+                              </div>
+
+                              <div class="comment-actions">
+                                <button class="action-btn reply-btn" aria-label="پاسخ به نظر" data-comment-id="{{ reply.id }}">
+                                  <i class="bi bi-chat"></i>
+                                  <span>پاسخ</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              {% endwith %}
+            </div>
+          {% empty %}
+            <p>اولین نفری باشید که نظر خود را درباره این مقاله می‌نویسد.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /بخش نظرات -->
+
+  <!-- فرم ثبت نظر -->
+  <section id="blog-comment-form" class="blog-comment-form section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags|default:'success' }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="post" role="form" action="{% url 'blog:post_detail' post.slug %}#blog-comment-form">
+        {% csrf_token %}
+        {{ form.parent }}
+        <div class="section-header">
+          <h3>نظر خود را بنویسید</h3>
+          <p>ایمیل شما منتشر نخواهد شد. فیلدهای الزامی با * مشخص شده‌اند.</p>
+        </div>
+
+        <div class="row gy-3">
+          <div class="col-md-6 form-group">
+            <label for="{{ form.full_name.id_for_label }}">نام و نام خانوادگی *</label>
+            {{ form.full_name }}
+            {% if form.full_name.errors %}
+              <div class="text-danger small">{{ form.full_name.errors|striptags }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label for="{{ form.email.id_for_label }}">آدرس ایمیل *</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+              <div class="text-danger small">{{ form.email.errors|striptags }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-12 form-group">
+            <label for="{{ form.website.id_for_label }}">وب‌سایت</label>
+            {{ form.website }}
+            {% if form.website.errors %}
+              <div class="text-danger small">{{ form.website.errors|striptags }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-12 form-group">
+            <label for="{{ form.comment.id_for_label }}">نظر شما *</label>
+            {{ form.comment }}
+            {% if form.comment.errors %}
+              <div class="text-danger small">{{ form.comment.errors|striptags }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-12 text-center">
+            <button type="submit" class="btn-submit">ارسال نظر</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- /فرم ثبت نظر -->
+</main>
+{% endblock %}

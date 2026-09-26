@@ -2,8 +2,8 @@
 
 <section id="latest-posts" class="latest-posts section">
   <div class="container section-title" data-aos="fade-up">
-    <span class="description-title">جدید ترین پست‌ها</span>
-    <h2>جدید ترین پست‌ها</h2>
+    <span class="description-title">جدیدترین محصولات</span>
+    <h2>جدیدترین محصولات</h2>
     <p>نگاهی به جدیدترین و جذاب‌ترین آثار هنری خلق شده در کارگاه نوین صنعت فلز.</p>
   </div>
 
@@ -38,24 +38,19 @@
               {% endif %}
               <p class="excerpt d-none d-md-block">{{ primary_post.excerpt|default:primary_post.content|truncatewords:20 }}</p>
 
-              <div class="meta d-flex align-items-center gap-3">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-person"></i>
-                  <span class="ps-2">{{ primary_post.author.get_full_name|default:primary_post.author.username }}</span>
-                </div>
-                {% if primary_post.category %}
-                  <span class="sep">/</span>
+              {% if primary_post.category %}
+                <div class="meta d-flex align-items-center gap-3">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-folder2"></i><span class="ps-2">{{ primary_post.category.name }}</span>
                   </div>
-                {% endif %}
-              </div>
+                </div>
+              {% endif %}
 
-              <a href="{{ primary_post.get_absolute_url }}" class="readmore stretched-link"><span>ادامه مطلب</span><i class="bi bi-arrow-right"></i></a>
+              <a href="{{ primary_post.get_absolute_url }}" class="readmore stretched-link"><span>مشاهده محصول</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </article>
         {% else %}
-          <p>به‌روزرسانی اخیری یافت نشد.</p>
+          <p>محصول اخیری یافت نشد.</p>
         {% endif %}
       </div>
 
@@ -85,13 +80,13 @@
                   {% else %}
                     <div><span class="card-price inquiry">استعلام قیمت</span></div>
                   {% endif %}
-                  <a href="{{ post.get_absolute_url }}" class="readmore"><span>مطالعه مقاله</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="{{ post.get_absolute_url }}" class="readmore"><span>مشاهده محصول</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </article>
             </div>
           {% empty %}
             {% if not primary_post %}
-              <p>به‌زودی مطالب جدید منتشر می‌شود.</p>
+              <p>به‌زودی محصولات جدید منتشر می‌شود.</p>
             {% endif %}
           {% endfor %}
         </div>

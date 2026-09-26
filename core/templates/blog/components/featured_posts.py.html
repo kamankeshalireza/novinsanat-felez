@@ -2,8 +2,8 @@
 
 <section id="featured-posts" class="featured-posts section">
   <div class="container section-title" data-aos="fade-up">
-    <span class="description-title">پست‌های ویژه</span>
-    <h2>پست‌های ویژه</h2>
+    <span class="description-title">محصولات ویژه</span>
+    <h2>محصولات ویژه</h2>
     <p>نگاهی به جدیدترین و جذاب‌ترین آثار هنری خلق شده در کارگاه نوین صنعت فلز.</p>
   </div>
 
@@ -51,13 +51,7 @@
                 {% endif %}
               </div>
               <div class="blog-content">
-                <div class="author-info">
-                  <img src="{% static 'assets/img/person/person-f-2.webp' %}" alt="{{ post.author.get_full_name }}" class="author-avatar" />
-                  <div class="author-details">
-                    <span class="author-name">{{ post.author.get_full_name|default:post.author.username }}</span>
-                    <span class="publish-date">{{ post.created_at|date:'j F Y' }}</span>
-                  </div>
-                </div>
+                <span class="publish-date"><i class="bi bi-calendar3"></i> {{ post.created_at|date:'j F Y' }}</span>
                 <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                 {% if post.price %}
                   <div><span class="card-price"><span class="amount">{{ post.price|floatformat:0 }}</span><span class="currency">تومان</span></span></div>
@@ -66,12 +60,8 @@
                 {% endif %}
                 <p>{{ post.excerpt|default:post.content|truncatewords:20 }}</p>
                 <div class="blog-footer">
-                  <div class="reading-time">
-                    <i class="bi bi-clock"></i>
-                    <span>{{ post.reading_time }} دقیقه مطالعه</span>
-                  </div>
                   <a href="{{ post.get_absolute_url }}" class="btn-read-more">
-                    <span>ادامه مطلب</span>
+                    <span>مشاهده محصول</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
@@ -80,7 +70,7 @@
           </div>
         {% empty %}
           <div class="swiper-slide">
-            <p class="text-center">در حال حاضر پست ویژه‌ای موجود نیست.</p>
+            <p class="text-center">در حال حاضر محصول ویژه‌ای موجود نیست.</p>
           </div>
         {% endfor %}
       </div>

@@ -7,16 +7,16 @@
   {% elif current_tag %}
     #{{ current_tag.name }}
   {% elif current_author %}
-    نوشته‌های {{ current_author.get_full_name|default:current_author.username }}
+    محصولات {{ current_author.get_full_name|default:current_author.username }}
   {% elif search_query %}
     نتایج جستجو برای «{{ search_query }}»
   {% else %}
-    دسته‌بندی وبلاگ
+    دسته‌بندی محصولات
   {% endif %}
   | نوین صنعت فلز
 {% endblock %}
 
-{% block meta_description %}آخرین مقالات و مطالب وبلاگ نوین صنعت فلز درباره هنر و صنعت فلز را در این بخش مشاهده کنید.{% endblock %}
+{% block meta_description %}آخرین محصولات نوین صنعت فلز را در این بخش مشاهده کنید.{% endblock %}
 
 {% block body_class %}
   blog-category-page
@@ -40,14 +40,14 @@
               {% elif current_tag %}
                 #{{ current_tag.name }}
               {% elif current_author %}
-                نوشته‌های {{ current_author.get_full_name|default:current_author.username }}
+                محصولات {{ current_author.get_full_name|default:current_author.username }}
               {% elif search_query %}
                 نتایج جستجو برای «{{ search_query }}»
               {% else %}
-                دسته‌بندی وبلاگ
+                دسته‌بندی محصولات
               {% endif %}
             </h1>
-            <p class="mb-0">آخرین مقالات و مطالب وبلاگ نوین صنعت فلز را در این بخش مشاهده کنید.</p>
+            <p class="mb-0">آخرین محصولات نوین صنعت فلز را در این بخش مشاهده کنید.</p>
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        <!-- بخش نوشته‌های دسته‌بندی -->
+        <!-- بخش محصولات دسته‌بندی -->
         <section id="category-postst" class="category-postst section">
           <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="row gy-5">
@@ -102,19 +102,24 @@
                     </div>
 
                     <h2 class="title"><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></h2>
+                    {% if post.price %}
+                      <div><span class="card-price"><span class="amount">{{ post.price|floatformat:0 }}</span><span class="currency">تومان</span></span></div>
+                    {% else %}
+                      <div><span class="card-price inquiry">استعلام قیمت</span></div>
+                    {% endif %}
                   </article>
                 </div>
-                <!-- پایان یک آیتم از فهرست نوشته‌ها -->
+                <!-- پایان یک آیتم از فهرست محصولات -->
               {% empty %}
                 <div class="col-12">
-                  <p>هیچ نوشته‌ای{% if search_query %} برای «{{ search_query }}»{% endif %} یافت نشد.</p>
+                  <p>هیچ محصولی{% if search_query %} برای «{{ search_query }}»{% endif %} یافت نشد.</p>
                 </div>
               {% endfor %}
             </div>
-            <!-- پایان فهرست نوشته‌های وبلاگ -->
+            <!-- پایان فهرست محصولات -->
           </div>
         </section>
-        <!-- /بخش نوشته‌های دسته‌بندی -->
+        <!-- /بخش محصولات دسته‌بندی -->
 
         <!-- بخش صفحه‌بندی -->
         {% if is_paginated %}
@@ -169,7 +174,7 @@
           <div class="search-widget widget-item">
             <h3 class="widget-title">جستجو</h3>
             <form action="{% url 'blog:post_search' %}" method="get">
-              <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="جستجو در نوشته‌ها..." />
+              <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="جستجو در محصولات..." />
               <button type="submit" title="جستجو"><i class="bi bi-search"></i></button>
             </form>
           </div>
@@ -188,9 +193,9 @@
           </div>
           <!-- /ویجت دسته‌بندی‌ها -->
 
-          <!-- ویجت نوشته‌های اخیر -->
+          <!-- ویجت محصولات اخیر -->
           <div class="recent-posts-widget widget-item">
-            <h3 class="widget-title">نوشته‌های اخیر</h3>
+            <h3 class="widget-title">محصولات اخیر</h3>
 
             {% for recent_post in recent_posts %}
               <div class="post-item">
@@ -204,10 +209,10 @@
                   <time datetime="{{ recent_post.created_at|date:'Y-m-d' }}">{{ recent_post.created_at|date:'j F Y' }}</time>
                 </div>
               </div>
-              <!-- پایان یک نوشته اخیر -->
+              <!-- پایان یک محصول اخیر -->
             {% endfor %}
           </div>
-          <!-- /ویجت نوشته‌های اخیر -->
+          <!-- /ویجت محصولات اخیر -->
 
           <!-- ویجت برچسب‌ها -->
           <div class="tags-widget widget-item">

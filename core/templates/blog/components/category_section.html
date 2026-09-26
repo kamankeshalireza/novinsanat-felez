@@ -4,7 +4,7 @@
   <div class="container section-title" data-aos="fade-up">
     <span class="description-title">{{ category_name }}</span>
     <h2>{{ category_name }}</h2>
-    <p>جدیدترین نوشته‌ها و مطالب دسته‌بندی {{ category_name }} را در این بخش مشاهده کنید.</p>
+    <p>جدیدترین محصولات دسته‌بندی {{ category_name }} را در این بخش مشاهده کنید.</p>
   </div>
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -20,13 +20,6 @@
               {% endif %}
             </div>
             <div class="post-content">
-              <div class="author-info">
-                <img src="{% static 'assets/img/person/person-f-8.webp' %}" alt="{{ hero_post.author.username }}" class="author-avatar" />
-                <div class="author-details">
-                  <span class="author-name">{{ hero_post.author.get_full_name|default:hero_post.author.username }}</span>
-                  <span class="post-date">{{ hero_post.created_at|date:'j F Y' }}</span>
-                </div>
-              </div>
               <h2 class="post-title"><a href="{{ hero_post.get_absolute_url }}">{{ hero_post.title }}</a></h2>
               {% if hero_post.price %}
                 <div><span class="card-price"><span class="amount">{{ hero_post.price|floatformat:0 }}</span><span class="currency">تومان</span></span></div>
@@ -35,13 +28,13 @@
               {% endif %}
               <p class="post-excerpt">{{ hero_post.excerpt|default:hero_post.content|truncatewords:30 }}</p>
               <div class="post-stats">
-                <span class="read-time"><i class="bi bi-clock"></i> {{ hero_post.reading_time }} دقیقه مطالعه</span>
+                <span class="post-date"><i class="bi bi-calendar3"></i> {{ hero_post.created_at|date:'j F Y' }}</span>
                 <span class="comments"><i class="bi bi-chat-dots"></i> {{ hero_post.approved_comments_count }} نظر</span>
               </div>
             </div>
           </article>
         {% else %}
-          <p>هنوز مقاله ویژه‌ای در این دسته‌بندی موجود نیست.</p>
+          <p>هنوز محصول ویژه‌ای در این دسته‌بندی موجود نیست.</p>
         {% endif %}
       </div>
 
@@ -103,11 +96,7 @@
                   {% endif %}
                   <p class="excerpt">{{ post.excerpt|default:post.content|truncatewords:20 }}</p>
                   <div class="post-footer">
-                    <div class="author-info">
-                      <img src="{% static 'assets/img/person/person-f-7.webp' %}" alt="{{ post.author.username }}" class="author-img" />
-                      <span class="author-name">{{ post.author.get_full_name|default:post.author.username }}</span>
-                    </div>
-                    <span class="read-time">{{ post.reading_time }} دقیقه مطالعه</span>
+                    <span class="post-date"><i class="bi bi-calendar3"></i> {{ post.created_at|date:'j F Y' }}</span>
                   </div>
                 </div>
               </article>

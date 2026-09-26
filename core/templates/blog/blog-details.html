@@ -5,7 +5,7 @@
   {{ post.title }} | نوین صنعت فلز
 {% endblock %}
 
-{% block meta_description %}{{ post.excerpt|default:'مطالعه مقاله در وبلاگ نوین صنعت فلز' }}{% endblock %}
+{% block meta_description %}{{ post.excerpt|default:'معرفی این محصول در نوین صنعت فلز' }}{% endblock %}
 
 {% block body_class %}
   blog-details-page
@@ -138,7 +138,7 @@
       <div class="container">
         <div class="row d-flex justify-content-center text-center">
           <div class="col-lg-8">
-            <h2 class="heading-title">جزئیات مقاله</h2>
+            <h2 class="heading-title">جزئیات محصول</h2>
             <p class="mb-0">{{ post.excerpt }}</p>
           </div>
         </div>
@@ -150,14 +150,14 @@
           <li>
             <a href="{% url 'website:index' %}">صفحه اصلی</a>
           </li>
-          <li class="current">جزئیات مقاله</li>
+          <li class="current">جزئیات محصول</li>
         </ol>
       </div>
     </nav>
   </div>
   <!-- پایان عنوان صفحه -->
 
-  <!-- بخش جزئیات مقاله -->
+  <!-- بخش جزئیات محصول -->
   <section id="blog-details" class="blog-details section">
     <div class="container" data-aos="fade-up">
       <div class="product-hero">
@@ -222,7 +222,7 @@
             <h3><i class="bi bi-list-ul"></i> فهرست مطالب</h3>
             <ul class="content-nav">
               <li>
-                <a href="#article-content" class="nav-link active">مقاله</a>
+                <a href="#article-content" class="nav-link active">توضیحات</a>
               </li>
             </ul>
 
@@ -245,7 +245,7 @@
       <div class="article-actions" data-aos="fade-up">
         <div class="engagement-section">
           <div class="social-sharing">
-            <h3>این مقاله را به اشتراک بگذارید</h3>
+            <h3>این محصول را به اشتراک بگذارید</h3>
             <div class="share-options">
               <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title|urlencode }}" target="_blank" rel="noopener" class="share-btn twitter">
                 <i class="bi bi-twitter-x"></i>
@@ -278,7 +278,7 @@
       </div>
     </div>
   </section>
-  <!-- /بخش جزئیات مقاله -->
+  <!-- /بخش جزئیات محصول -->
 
   <!-- بخش نظرات -->
   <section id="blog-comments" class="blog-comments section">
@@ -372,7 +372,7 @@
               {% endwith %}
             </div>
           {% empty %}
-            <p>اولین نفری باشید که نظر خود را درباره این مقاله می‌نویسد.</p>
+            <p>اولین نفری باشید که نظر خود را درباره این محصول می‌نویسد.</p>
           {% endfor %}
         </div>
       </div>
